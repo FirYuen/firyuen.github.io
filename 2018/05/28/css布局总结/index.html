@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="yuenwork&#39;Blog">
 <meta property="og:description" content="1. 水平居中 方法一：margin:0 auto; （最常用的居中布局方式） 方法二：text-align和inline-block的结合（设置父元素的text-align为center）。   这种方式最好应用于图片、按钮、文字之类的居中模式，否则就需要借助inline-block来进行居中布局。   方法三：position绝对定位来实现居中布局。   适用于块级元素不给出宽高的情况下(需要">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-28T15:27:20.712Z">
+<meta property="og:updated_time" content="2018-05-28T15:30:20.559Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css布局总结">
 <meta name="twitter:description" content="1. 水平居中 方法一：margin:0 auto; （最常用的居中布局方式） 方法二：text-align和inline-block的结合（设置父元素的text-align为center）。   这种方式最好应用于图片、按钮、文字之类的居中模式，否则就需要借助inline-block来进行居中布局。   方法三：position绝对定位来实现居中布局。   适用于块级元素不给出宽高的情况下(需要">
@@ -172,14 +172,14 @@
 </blockquote>
 </li>
 </ul>
-<p><code class="css">#parent{<br>    position: relative;<br>}<br>#child{<br>    position: absolute;<br>    top: 0;<br>    left: 50%;<br>    transform: translateX(-50%);<br>}</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#parent</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#child</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(-50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>方法四：利用flex弹性布局的一个属性。</li>
 </ul>
 <blockquote>
 <p>子元素宽度已知的情况下</p>
 </blockquote>
-<p><code class="css">#parent{<br>    display: flex;<br>    justify-content: center;<br>}</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#parent</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>其他还有很多方法，一般用的不太多。并且各种方法优缺点不一样，可选择性使用。</li>
 </ul>
@@ -194,10 +194,10 @@
 <li>子元素 margin: auto;</li>
 </ol>
 </blockquote>
-<p><code class="css">#parent{<br>    width: 100%;<br>    height:100%;<br>    position: fixed;<br>}<br>#child{<br>    width: 400px;<br>    height: 200px;<br>    position: absolute;<br>    top: 0;<br>    bottom: 0;<br>    left: 0;<br>    right: 0;<br>    margin: auto;<br>    background-color: #ccc;<br>}</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    width: 100%;</span><br><span class="line">    height:100%;</span><br><span class="line">    position: fixed;</span><br><span class="line">&#125;</span><br><span class="line">\#child&#123;</span><br><span class="line">    width: 400px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    bottom: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    right: 0;</span><br><span class="line">    margin: auto;</span><br><span class="line">    background-color: #ccc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>方式二：利用position的绝对定位及负边框来实现。</p>
-<p><code class="css">#parent{<br>position: fixed;<br>width: 100%;<br>height: 100%;<br>}<br>#child{<br>position: absolute;<br>left: 50%;<br>top: 50%;<br>width: 400px;<br>height: 200px;<br>margin-top: -100px;<br>margin-left: -200px;<br>background-color: #ccc;<br>}</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    position: fixed;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">&#125;</span><br><span class="line">\#child&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 50%;</span><br><span class="line">    top: 50%;</span><br><span class="line">    width: 400px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    margin-top: -100px;</span><br><span class="line">    margin-left: -200px;</span><br><span class="line">    background-color: #ccc;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <blockquote>
@@ -210,11 +210,8 @@
 <li>方式一：float+margin的方式</li>
 </ul>
 <blockquote>
-<p>这种方式一定要记得给父元素清除浮动(<code>clearfix</code>)<br><code class="scss">.clearfix:after {<br>    content: ‘.’;<br>    height: 0;<br>    overflow: hidden;<br>    clear: both;<br>    display: block;<br>    visibility: hidden;<br>}<br>.clearfix {<br>    zoom: 1;  <!--hack--><br>}</code></p>
+<p>这种方式一定要记得给父元素清除浮动(<code>clearfix</code>)<br><code class="scss">.clearfix:after {<br>    content: ‘.’;<br>    height: 0;<br>    overflow: hidden;<br>    clear: both;<br>    display: block;<br>    visibility: hidden;<br>}<br>.clearfix {<br>    zoom: 1;  <!--hack--><br>}<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">看起来有点小复杂啊，这里不分析这种方法的原理，记住就好了。当然也可以直接借助触发BFC的方式来解决（常用的方式就是给你的父元素设置`overflow: hidden;`）。</span><br><span class="line"></span><br><span class="line">哦+语气~好像跑偏了，说好的布局呢，见下诉代码：</span><br><span class="line"></span><br><span class="line">```css#left&#123;</span><br><span class="line">    float: left;</span><br><span class="line">    width: 100px;</span><br><span class="line">&#125;</span><br><span class="line">\#right&#123;</span><br><span class="line">    margin-left: 120px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></p>
 </blockquote>
-<p>看起来有点小复杂啊，这里不分析这种方法的原理，记住就好了。当然也可以直接借助触发BFC的方式来解决（常用的方式就是给你的父元素设置<code>overflow: hidden;</code>）。</p>
-<p>哦+语气~好像跑偏了，说好的布局呢，见下诉代码：</p>
-<p><code class="css">#left{<br>    float: left;<br>    width: 100px;<br>}<br>#right{<br>    margin-left: 120px;<br>}</code></p>
 <ul>
 <li>方式二：float+overflow的方式</li>
 </ul>
@@ -222,12 +219,7 @@
 <blockquote>
 <p>这种方式父元素的高度是取决于最大子元素的高度，在左边栏高度大于右边栏的情况下不会出现问题，但是反过来就塌陷了，所以还是需要给父元素清除浮动</p>
 </blockquote>
-<p><code class="xml">#left{<br>    float: left;<br>    width: 100px;<br>    margin-right: 20px; <!--好歹留个空啊嘿嘿--><br>}<br>#right{<br>    overflow: hidden;<br>}</code></p>
-<ul>
-<li>方式三：float+margin+position的方式</li>
-</ul>
-<p>这个方式呢也用到过，但是要考虑的比较多一点，不过其实也还好。<br>实现代码：</p>
-<p><code class="css">#parent{<br>    position: relative;<br>}<br>#left{<br>    float: left;<br>    width: 100px;<br>    background-color: #ccc;<br>}<br>#right{<br>    position: absolute;<br>    top: 0;<br>    left: 120px;<br>    background-color:pink;<br>}</code></p>
+<p><code class="xml">#left{<br>    float: left;<br>    width: 100px;<br>    margin-right: 20px; <!--好歹留个空啊嘿嘿--><br>}<br>#right{<br>    overflow: hidden;<br>}<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*   方式三：float+margin+position的方式</span><br><span class="line"></span><br><span class="line">这个方式呢也用到过，但是要考虑的比较多一点，不过其实也还好。</span><br><span class="line">实现代码：</span><br><span class="line"></span><br><span class="line">```css#parent&#123;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">\#left&#123;</span><br><span class="line">    float: left;</span><br><span class="line">    width: 100px;</span><br><span class="line">    background-color: #ccc;</span><br><span class="line">&#125;</span><br><span class="line">\#right&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 120px;</span><br><span class="line">    background-color:pink; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></p>
 <blockquote>
 <p>这种方式实现起来很简单，但是对后文是有影响的，需要自己解决一下</p>
 </blockquote>
@@ -237,14 +229,14 @@
 <blockquote>
 <p>这个呢，坑肯定是比较多的，建议用在小范围的布局，当然某些时候用起来确实比较爽歪歪</p>
 </blockquote>
-<p><code class="css">#parent{<br>    display: flex;<br>}<br>#left{<br>    width: 100px;<br>    margin-right: 20px;<br>}<br>#right{<br>    flex: 1;<br>}</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    display: flex;</span><br><span class="line">&#125;</span><br><span class="line">\#left&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    margin-right: 20px;</span><br><span class="line">&#125;</span><br><span class="line">\#right&#123;</span><br><span class="line">    flex: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>其他的</li>
 </ul>
 <h3 id="4-左边自适应右边固定"><a href="#4-左边自适应右边固定" class="headerlink" title="4. 左边自适应右边固定"></a>4. 左边自适应右边固定</h3><ul>
 <li>方式一： 当然还是position<br>反正很多情况都可以用position来解决，但是，同时也会有一些其他问题出现，所以，自行思考用不用~</li>
 </ul>
-<p><code class="css">#parent {<br>    position: relative;<br>}<br>#left {<br>    margin-right:220px;<br>}<br>#right {<br>    position: absolute;<br>    right:0;<br>    top:0;<br>    width: 200px;<br>}</code></p>
+<figure class="highlight plain"><figcaption><span>&#123;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">\#left &#123;</span><br><span class="line">    margin-right:220px; </span><br><span class="line">&#125;</span><br><span class="line">\#right &#123;</span><br><span class="line">    position: absolute; </span><br><span class="line">    right:0; </span><br><span class="line">    top:0;</span><br><span class="line">    width: 200px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="5-两边固定中间自适应的三列布局"><a href="#5-两边固定中间自适应的三列布局" class="headerlink" title="5. 两边固定中间自适应的三列布局"></a>5. 两边固定中间自适应的三列布局</h3><p>这个布局用的也挺多的</p>
 <ul>
 <li>方式一：纯float方式</li>
@@ -256,7 +248,7 @@
 <li>中间元素在文档流的最后渲染，自动插入到左右两列元素的中间，随后设置 margin 左右边距分别为左右两列的宽度，将中间元素调整到正确的位置。</li>
 </ol>
 </blockquote>
-<p><code class="css">.left{<br>    float: left;<br>    width: 200px;<br>    height: 200px;<br>}<br>.right{<br>    float: right;<br>    width: 100px;<br>    height: 100px;<br>}<br>.middle{<br>    margin:0 120px 0 220px;<br>}</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">    float: left;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">    float: right;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">&#125;</span><br><span class="line">.middle&#123;</span><br><span class="line">    margin:0 120px 0 220px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>但凡用float的时候都要想一下父元素上清除浮动这个问题！</p>
 </blockquote>
@@ -264,12 +256,12 @@
 <li>方式二：position的绝对定位</li>
 </ul>
 <p>其实感觉跟float的原理差不多，都是将左右两侧的块先固定好，再对中间部分进行处理，只不过自己可以在不同情况下选择float或者position。（补充：这种方式的父元素高度取决于中间部分的高度，当两侧高度大于中间高度时，则出现高度塌陷，除非指定父元素的高度，当两侧高度小于中间部分时，可以使用。所以要考虑使用场景慎重选择不同的方式）</p>
-<p><code class="css">.parent{<br>    position: relative;<br>}<br>.left{<br>    position: absolute;<br>    width: 200px;<br>    height: 200px;<br>    top: 0;<br>    left: 0;<br>}<br>.right{<br>    position: absolute;<br>    top: 0;<br>    right: 0;<br>    width: 100px;<br>    height: 100px;<br>}<br>.middle{<br>    margin:0 120px 0 220px;<br>}</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br><span class="line">\.left&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">&#125;</span><br><span class="line">\.right&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    right: 0;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">&#125;</span><br><span class="line">.middle&#123;</span><br><span class="line">    margin:0 120px 0 220px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>方式三：flex的弹性布局</li>
 </ul>
 <p>不得不说的是其实很多布局都可以用flex来实现(简单粗暴)，但是flex的兼容性不是很好，并且还有别问题，所以保险起见还是选择常用的，这里简单介绍下。</p>
-<p><code class="css">.parent{<br>    display: flex;<br>}<br>.left{<br>    width: 200px;<br>    height: 200px;<br>}<br>.right{<br>    width: 100px;<br>    height: 100px;<br>}<br>.middle{<br>    flex: 1;<br>    margin:0 20px;<br>}</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">    display: flex;</span><br><span class="line">&#125;</span><br><span class="line">.left&#123;</span><br><span class="line">    width: 200px;</span><br><span class="line">    height: 200px;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">    width: 100px;</span><br><span class="line">    height: 100px;</span><br><span class="line">&#125;</span><br><span class="line">.middle&#123;</span><br><span class="line">    flex: 1;</span><br><span class="line">    margin:0 20px; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>方式四：最后该淘宝的<code>双翼布局</code>闪亮登场了</li>
 </ul>
@@ -290,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/28/css布局总结/" data-id="cjhqepkvw0004bsvfgkzqxk51" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/28/css布局总结/" data-id="cjhqetn4i0007l0vfb1p6yr1u" class="article-share-link">Share</a>
       
       
     </footer>
