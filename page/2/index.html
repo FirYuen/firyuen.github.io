@@ -76,7 +76,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">13</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">14</span></li></ul>
     </div>
   </div>
 
@@ -86,6 +86,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/05/28/css布局总结/">css布局总结</a>
+          </li>
         
           <li>
             <a href="/2018/05/22/随身git服务器/">随身git服务器</a>
@@ -101,10 +105,6 @@
         
           <li>
             <a href="/2018/05/19/css1/">CSS-1</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/18/html标签/">html标签</a>
           </li>
         
       </ul>
@@ -134,6 +134,48 @@
 </aside>
         
         <section id="main">
+  
+    <article id="post-Linux基础" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/14/Linux基础/" class="article-date">
+  <time datetime="2018-05-14T13:10:21.779Z" itemprop="datePublished">2018-05-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/14/Linux基础/">Linux基础</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>按照课程安排，写几个Linux基础命令。</p>
+<h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><h3 id="查看当前目录下的文件"><a href="#查看当前目录下的文件" class="headerlink" title="查看当前目录下的文件"></a>查看当前目录下的文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br><span class="line">Applications    Documents	Library		Music		Public</span><br><span class="line">Desktop		Downloads	Movies		Pictures</span><br></pre></td></tr></table></figure>
+<h3 id="以列表方式查看当前目录下文件"><a href="#以列表方式查看当前目录下文件" class="headerlink" title="以列表方式查看当前目录下文件"></a>以列表方式查看当前目录下文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">$ ls -l</span><br><span class="line">total 0</span><br><span class="line">drwx------@  4 yuanpengfei  staff   128  5 12 12:58 Applications</span><br><span class="line">drwx------+  9 yuanpengfei  staff   288  5 13 17:12 Desktop</span><br><span class="line">drwx------+  8 yuanpengfei  staff   256  5 13 19:57 Documents</span><br><span class="line">drwx------+ 10 yuanpengfei  staff   320  5 13 17:49 Downloads</span><br><span class="line">drwx------@ 61 yuanpengfei  staff  1952  5 13 17:30 Library</span><br><span class="line">drwx------+  3 yuanpengfei  staff    96  5 12 00:25 Movies</span><br><span class="line">drwx------+  4 yuanpengfei  staff   128  5 12 23:05 Music</span><br><span class="line">drwx------+  3 yuanpengfei  staff    96  5 12 00:25 Pictures</span><br><span class="line">drwxr-xr-x+  4 yuanpengfei  staff   128  5 12 00:25 Public</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 显示当前目录下所有文件，包括隐藏文件</span></span><br><span class="line">``` bash</span><br><span class="line">$ ls -a</span><br><span class="line">.			.config			Desktop</span><br><span class="line">..			.gitconfig		Documents</span><br><span class="line">.CFUserTextEncoding	.node_repl_history	Downloads</span><br><span class="line">.DS_Store		.npm			Library</span><br><span class="line">.ShadowsocksX-NG	.oracle_jre_usage	Movies</span><br><span class="line">.Trash			.ssh			Music</span><br><span class="line">.bash_history		.swt			Pictures</span><br><span class="line">.bash_sessions		.vscode			Public</span><br><span class="line">.bashrc			Applications</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">## cat</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 打印文件内容到终端上</span></span><br><span class="line">```bash</span><br><span class="line">$ cat .bashrc</span><br><span class="line"><span class="built_in">alias</span> ll=<span class="string">"ls -l"</span></span><br><span class="line"><span class="built_in">cd</span> ~/Desktop/</span><br></pre></td></tr></table></figure>
+<h2 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h2><h3 id="将文件重命名或者移动到指定目录"><a href="#将文件重命名或者移动到指定目录" class="headerlink" title="将文件重命名或者移动到指定目录"></a>将文件重命名或者移动到指定目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br><span class="line">1.txt</span><br><span class="line">$ mv 1.txt 2.txt</span><br><span class="line">$ ls</span><br><span class="line">2.txt</span><br></pre></td></tr></table></figure>
+<h2 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h2><h3 id="创建一个空白文件"><a href="#创建一个空白文件" class="headerlink" title="创建一个空白文件"></a>创建一个空白文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br><span class="line">1.txt</span><br><span class="line">$ touch 2.txt</span><br><span class="line">$ ls</span><br><span class="line">1.txt 2.txt</span><br></pre></td></tr></table></figure>
+<h2 id="explainshell-com"><a href="#explainshell-com" class="headerlink" title="explainshell.com"></a>explainshell.com</h2><p>输入不认识的命令和后面的参数，explainshell会分辨解析命令的功能是什么，后面跟着的参数是什么，都是英文的，墙内的可以参考这个网站<a href="http://man.linuxde.net" target="_blank" rel="noopener">Linux命令大全</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yuenwork.github.io/2018/05/14/Linux基础/" data-id="cjhqepkvv0003bsvfwwak0qqp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -170,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/14/hello-world/" data-id="cjhhuyk5o00051cvf45o34g7m" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/14/hello-world/" data-id="cjhqepkw10008bsvfob7df2yp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -210,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/14/Git基础/" data-id="cjhhuyk5800001cvfm1qc2e8d" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/14/Git基础/" data-id="cjhqepkvf0000bsvffrycwom7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -247,7 +289,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/13/开博大吉/" data-id="cjhhuyk63000b1cvf5h0rfc2b" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/13/开博大吉/" data-id="cjhqepkw7000cbsvfmus11lrs" class="article-share-link">Share</a>
       
       
     </footer>
