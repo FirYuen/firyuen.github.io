@@ -76,7 +76,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">14</span></li></ul>
     </div>
   </div>
 
@@ -86,6 +86,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/06/13/JavaScript的数据类型/">JavaScript的数据类型</a>
+          </li>
         
           <li>
             <a href="/2018/05/28/css布局总结/">css布局总结</a>
@@ -101,10 +105,6 @@
         
           <li>
             <a href="/2018/05/19/css2/">CSS-2</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/19/css1/">CSS-1</a>
           </li>
         
       </ul>
@@ -134,6 +134,71 @@
 </aside>
         
         <section id="main">
+  
+    <article id="post-JavaScript的数据类型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/13/JavaScript的数据类型/" class="article-date">
+  <time datetime="2018-06-13T15:27:28.000Z" itemprop="datePublished">2018-06-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/13/JavaScript的数据类型/">JavaScript的数据类型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#Number<br>在JavaScript中，不区分整型和浮点型。例如</p>
+<pre><code>1           //整数
+1.1         //浮点数
+0.232e4     //科学计数法 等同于0.232×10000
+-23         //负数
+NaN         //not a number ,表示结果无法集散
+Infinity    //无限大  超出Number的取值范围
+</code></pre><p>两个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> / <span class="number">0</span> = <span class="literal">Infinity</span></span><br><span class="line"><span class="number">0</span> / <span class="number">0</span> = <span class="literal">NaN</span></span><br></pre></td></tr></table></figure></p>
+<p>#布尔类型<br>和所有语言一样，布尔类型只有两种取值，true和false</p>
+<pre><code>true        //true
+false       //false
+2 &gt; 1       //true
+2 &lt; 1       //false
+</code></pre><p>跟布尔类型密切相关的是与或非三种运算</p>
+<p>##与运算<br>运算符 &amp;&amp;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">true &amp;&amp; true        //true</span><br><span class="line">true &amp;&amp; false       //false</span><br><span class="line">false &amp;&amp; false      //false</span><br></pre></td></tr></table></figure></p>
+<p>##或运算<br>运算符 ||<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">true || true        //true</span><br><span class="line">true || false       //true</span><br><span class="line">false || false      //false</span><br></pre></td></tr></table></figure></p>
+<p>##非运算<br>运算符 ！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">!true       //false</span><br><span class="line">!false      //true</span><br></pre></td></tr></table></figure></p>
+<p>#字符串<br>字符串是使用单引号’或者双引号”括起来的任意文本<br>例如’android’ “ios”<br>但是’’或者””本身并不是字符串的一部分</p>
+<p>#数组<br>数组是一串按照顺序排列的元素的集合，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3, 4, 6, 7]</span><br><span class="line">[23, 54, 54, &apos;12&apos;, &apos;adc&apos;]</span><br><span class="line">[&apos;12&apos;, &apos;23&apos;, &apos;av&apos;, &#123;a:b,c:d&#125;, [1, 2]]</span><br></pre></td></tr></table></figure></p>
+<p>创建数组的两种方法 </p>
+<ul>
+<li>var arr = new Array(‘a’, ‘c’, ‘d’) </li>
+<li>var arr = [‘a’, ‘c’, ‘d’]<br>推荐使用第二种方法，该方法申明的数组可读性更好</li>
+</ul>
+<p>#对象<br>由key-value组成的无序集合<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> company = &#123;</span><br><span class="line">    google: <span class="string">'android'</span>,</span><br><span class="line">    apple: <span class="string">'ios'</span>,</span><br><span class="line">    microsoft: [<span class="string">'office'</span>, <span class="string">'windows'</span>, <span class="string">'vs'</span>],</span><br><span class="line">    facebook: <span class="string">'facebook'</span>,</span><br><span class="line">    beijing: <span class="literal">true</span>,</span><br><span class="line">    money: <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>##取值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">company.google       //&apos;android&apos;</span><br><span class="line">company.microsoft    //[&apos;office&apos;, &apos;windows&apos;, &apos;vs&apos;]</span><br><span class="line">company.monet        //null</span><br></pre></td></tr></table></figure></p>
+<p>##添加<br>var company = {…}<br>company[‘china’] = ‘1949’<br>console.log(company)</p>
+<p>##结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    apple: &quot;ios&quot;</span><br><span class="line">    beijing: true</span><br><span class="line">    china: &quot;1949&quot;</span><br><span class="line">    facebook: &quot;facebook&quot; </span><br><span class="line">    google: &quot;android&quot;</span><br><span class="line">    microsoft: [&quot;office&quot;, &quot;windows&quot;, &quot;vs&quot;]</span><br><span class="line">    money: null</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>#null和undefined<br>null是什么都么有，空的，和0以及空字符串null都不同<br>undefined是未定义<br>两者的区别未见啥大的意义，一般情况下，都应该使用null，undefined可用于判断参数是否传递，未传递则为undefined </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yuenwork.github.io/2018/06/13/JavaScript的数据类型/" data-id="cjida1x8g0002nsvfad1hc9ul" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-css布局总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -263,7 +328,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/28/css布局总结/" data-id="cjhqevvtt0006tcvf57tb3bkk" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/28/css布局总结/" data-id="cjida1x8m0008nsvf6si383w9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -300,7 +365,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/22/随身git服务器/" data-id="cjhqevvty000atcvfwi2c7syn" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/22/随身git服务器/" data-id="cjida1x8x000ensvfwuu4jhk9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -419,7 +484,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/21/css学习笔记/" data-id="cjhqevvtv0008tcvfc9e85p15" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/21/css学习笔记/" data-id="cjida1x8k0006nsvfmtwwykpl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -508,7 +573,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/19/css2/" data-id="cjhqevvth0003tcvfhlzou8qc" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/19/css2/" data-id="cjida1x8l0007nsvfqni92svh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -628,7 +693,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/19/css1/" data-id="cjhqevvtr0005tcvfqczr9hbe" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/19/css1/" data-id="cjida1x8j0005nsvf0qgbytc1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -696,7 +761,7 @@ http-server -c-1 则不会缓存
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/18/html标签/" data-id="cjhqevvtw0009tcvfotlga6fp" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/18/html标签/" data-id="cjida1x8o0009nsvfy8rub331" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1226,7 +1291,7 @@ http-server -c-1 则不会缓存
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/17/HTML/" data-id="cjhqevvt70000tcvfpjavheuo" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/17/HTML/" data-id="cjida1x880000nsvfrzjdyv48" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1304,7 +1369,7 @@ http-server -c-1 则不会缓存
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/15/http/" data-id="cjhqevvtz000btcvfhxsu7wgw" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/15/http/" data-id="cjida1x8u000cnsvftz93p05q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1378,47 +1443,7 @@ http-server -c-1 则不会缓存
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/14/Hexo使用方法备注/" data-id="cjhqevvtf0002tcvf1rj9qx9t" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-nodejs部分文件操作命令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/14/nodejs部分文件操作命令/" class="article-date">
-  <time datetime="2018-05-14T13:10:21.780Z" itemprop="datePublished">2018-05-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/14/nodejs部分文件操作命令/">nodejs部分文件操作相关命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>按照课程安排，写几个Git基础命令。</p>
-<h3 id="获取当前文件目录"><a href="#获取当前文件目录" class="headerlink" title="获取当前文件目录"></a>获取当前文件目录</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.cwd()</span><br></pre></td></tr></table></figure>
-<h3 id="进入指定目录"><a href="#进入指定目录" class="headerlink" title="进入指定目录"></a>进入指定目录</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.chdir()</span><br></pre></td></tr></table></figure>
-<h2 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.mkdirSync(<span class="string">'./aaa'</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.writeFileSync(<span class="string">'./aaa/hello'</span>,<span class="string">'hello world!'</span>);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/14/nodejs部分文件操作命令/" data-id="cjhqevvu0000ctcvf8z4e4via" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/14/Hexo使用方法备注/" data-id="cjida1x8h0003nsvf5ns7jteh" class="article-share-link">Share</a>
       
       
     </footer>
