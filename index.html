@@ -76,7 +76,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">14</span></li></ul>
     </div>
   </div>
 
@@ -86,6 +86,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/06/18/JS里的类型/">JS里的类型</a>
+          </li>
         
           <li>
             <a href="/2018/06/13/JavaScript的数据类型/">JavaScript的数据类型</a>
@@ -101,10 +105,6 @@
         
           <li>
             <a href="/2018/05/21/css学习笔记/">css学习笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/19/css2/">CSS-2</a>
           </li>
         
       </ul>
@@ -134,6 +134,120 @@
 </aside>
         
         <section id="main">
+  
+    <article id="post-JS里的类型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/18/JS里的类型/" class="article-date">
+  <time datetime="2018-06-18T06:42:11.000Z" itemprop="datePublished">2018-06-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/18/JS里的类型/">JS里的类型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><h5 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h5><ul>
+<li>类型转换</li>
+<li>各类型的API</li>
+<li>内存图</li>
+<li>深复制</li>
+</ul>
+</li>
+<li><h5 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h5><ul>
+<li><p>转字符串string（比调用toString()API更常用简单的方法）</p>
+<ul>
+<li><p>使用<code>+&#39;&#39;</code>或者<code>&#39;&#39;+</code>（即与空字符串相加）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> + <span class="string">''</span></span><br><span class="line"><span class="string">"1"</span></span><br><span class="line"></span><br><span class="line"><span class="literal">true</span> + <span class="string">''</span></span><br><span class="line"><span class="string">"true"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line">obj + <span class="string">''</span></span><br><span class="line"><span class="string">"[object Object]"</span></span><br><span class="line"></span><br><span class="line"><span class="literal">null</span> + <span class="string">''</span></span><br><span class="line"><span class="string">"null"</span></span><br><span class="line"></span><br><span class="line"><span class="literal">undefined</span> + <span class="string">''</span></span><br><span class="line"><span class="string">"undefined"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//+ ''的逻辑是如果发现左右任意一边有字符串，它就会尝试把另外一边也变成字符串；+号总是希望能得到两个字符串。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一个问题<code>1+&#39;1&#39;=?</code></p>
+<p>解答:由于加号只能加相同类型的东西，所以它会尝试改变这个类型，<strong>优先会尝试把数字变成字符串</strong>，所以上面的的问题可以等价于<code>(1).toString()+&#39;1&#39;</code>所以结果是<code>&#39;11&#39;</code></p>
+</li>
+</ul>
+</li>
+<li><p>转布尔值boolean（比Boolean()全局方法更常用简单）</p>
+<ul>
+<li><p>用<code>!!</code>给任何东西取反两次就会得到一个布尔</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">!<span class="literal">true</span>   <span class="comment">//取反一次</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line">!!<span class="literal">true</span>	<span class="comment">//取反两次，根据这个得出新的方法，用任何东西给它取反两次就会得到一个布尔</span></span><br><span class="line"><span class="literal">true</span>	</span><br><span class="line"></span><br><span class="line">!! <span class="number">1</span>	<span class="comment">//number</span></span><br><span class="line"><span class="literal">true</span></span><br><span class="line"></span><br><span class="line">!! <span class="number">0</span>	<span class="comment">//number 0  false</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line"></span><br><span class="line">!! <span class="string">''</span>	<span class="comment">//空字符串   false</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line"></span><br><span class="line">!! <span class="string">'  '</span> <span class="comment">//非空字符串  </span></span><br><span class="line"><span class="literal">true</span></span><br><span class="line"></span><br><span class="line">!! &#123;&#125;   <span class="comment">//空对象</span></span><br><span class="line"><span class="literal">true</span></span><br><span class="line"></span><br><span class="line">!! &#123;<span class="attr">name</span>: <span class="string">'xiao'</span>&#125;   <span class="comment">//非空对象</span></span><br><span class="line"><span class="literal">true</span></span><br><span class="line"></span><br><span class="line">!! <span class="literal">null</span>			 <span class="comment">//null  false</span></span><br><span class="line"><span class="literal">false</span> </span><br><span class="line"></span><br><span class="line">!! <span class="literal">undefined</span>      <span class="comment">//undefined  false</span></span><br><span class="line"><span class="literal">false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JS里面其它的值变成布尔的时候，只有<strong>五个</strong>特殊值（七种数据类型，symbol先不考虑剩下的六种,布尔变布尔false变false除外），number里面只有两个是false分别是<code>0</code>和<code>NaN</code>;string里面只有一个是false，只有空字符串<code>&#39;&#39;</code>;<code>null</code>只有一个值,它就是false；<code>undefined</code>也只有一个值，它是false;所有的object都是true包括数组跟函数.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">!! <span class="number">0</span>     <span class="comment">//数值0</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line">!! <span class="literal">NaN</span>   <span class="comment">//数值NaN</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line">!! <span class="string">''</span>    <span class="comment">//空字符串</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line">!! <span class="literal">null</span>  <span class="comment">//null</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line">!! <span class="literal">undefined</span>  <span class="comment">//undefined</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line"><span class="comment">//上面五个是 五个falsy(adj:假的,假值)值!</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关于falsy值,falsy是在 Boolean 上下文中认定可转换为false的值;JavaScript在需要用到布尔类型值的上下文中使用强制类型转换将值转换为布尔值，比如：在条件语句或者循环语句中.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">false</span>)</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">null</span>)</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">undefined</span>)</span><br><span class="line"><span class="keyword">if</span> (<span class="number">0</span>)</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">NaN</span>)</span><br><span class="line"><span class="keyword">if</span> (<span class="string">''</span>)</span><br><span class="line"><span class="keyword">if</span> (<span class="string">""</span>)</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">document</span>.all) [<span class="number">1</span>]</span><br><span class="line"><span class="comment">//严谨来说有上面8个</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>转number（把其它数据类型转成number）五种方法</p>
+<ul>
+<li><p><code>Number(&#39;1&#39;) === 1</code></p>
+</li>
+<li><p><code>parseInt(&#39;1&#39;,10) === 1</code>全局函数，把它变成整数，第二个参数表示进制，一般都要加上，如果没加上表示默认10进制.</p>
+</li>
+<li><p><code>parseFloat(&#39;1.23&#39;) === 1.23</code>把它变成浮点数，不用写第二个参数，因为它只有10进制。</p>
+</li>
+<li><p><code>&#39;1&#39;-0 === 1</code> 减0，任何一个东西减上一个0都会得到一个number，既有<code>parseInt</code>的功能也有<code>parseFloat</code>的功能，所以最常用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'1'</span>- <span class="number">0</span></span><br><span class="line"> <span class="number">1</span>                 <span class="comment">//减0</span></span><br><span class="line"><span class="string">'1.23'</span> - <span class="number">0</span></span><br><span class="line"> <span class="number">1.23</span>              <span class="comment">//减0</span></span><br></pre></td></tr></table></figure>
+<p>但是上面的方法没有<code>parseInt</code>和<code>parseFloat</code>严谨,遇到特殊情况结果不同，如下图：<img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-17/59014222.jpg" alt=""><img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-17/66054381.jpg" alt=""></p>
+<p>​</p>
+</li>
+<li><p><code>+ &#39;1&#39;=== 1</code>取正，<code>+</code>表示取它原本的值用数字表示。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+ <span class="string">'1'</span></span><br><span class="line"><span class="number">1</span>                 <span class="comment">//取正，不是绝对值</span></span><br><span class="line">+ <span class="string">'.1'</span></span><br><span class="line"><span class="number">0.1</span>               <span class="comment">//取正</span></span><br><span class="line">+ <span class="string">'-1'</span></span><br><span class="line"><span class="number">-1</span>                <span class="comment">//取正</span></span><br><span class="line">-(- <span class="string">'-1'</span>)</span><br><span class="line"><span class="number">-1</span>                <span class="comment">//拓展，取-('-1')的负数</span></span><br></pre></td></tr></table></figure>
+<p>图示：<img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-17/74849596.jpg" alt=""></p>
+<p>一般常见的面试考点都是考第二种<code>parseInt</code>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">'011'</span>)</span><br><span class="line"><span class="number">11</span>                       <span class="comment">//以前结果是9，因为0开头会被认为是8进制</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'011'</span>,<span class="number">8</span>)</span><br><span class="line"><span class="number">9</span>                        <span class="comment">//8进制</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'011'</span>,<span class="number">10</span>)</span><br><span class="line"><span class="number">11</span>                       <span class="comment">//10进制</span></span><br><span class="line">一些奇怪的考点:parse会从头开始能parse多少就parse多少，（这也是与减<span class="number">0</span>跟取正不同的地方）一旦不能parse它就返回。</span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'sss'</span>)</span><br><span class="line"><span class="literal">NaN</span>                     <span class="comment">//不存在的数字</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'1s'</span>)</span><br><span class="line"><span class="number">1</span>                       <span class="comment">//后面s不能parse了返回1</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'12s'</span>)</span><br><span class="line"><span class="number">12</span>                      <span class="comment">//后面s不能parse了返回12</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h5 id="各类型的API"><a href="#各类型的API" class="headerlink" title="各类型的API"></a>各类型的API</h5><ul>
+<li><p>转成string的API<code>toString()</code> 以及用String的全局方法<code>window.String()</code></p>
+<ul>
+<li>如果想让一个东西变成字符串，如果它能变成字符串,调用下toString就行。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">1</span></span><br><span class="line">n.toString()</span><br><span class="line"><span class="comment">//"1"     number转string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="literal">true</span></span><br><span class="line">b.toString()</span><br><span class="line"><span class="comment">//"true"  boolean转string</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="literal">null</span></span><br><span class="line">a.toString()</span><br><span class="line"><span class="comment">// null转string语法错误，`Uncaught TypeError: Cannot read property(属性) 'toString' of null`,null没有toString这个API。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="literal">undefined</span></span><br><span class="line">c.toString()</span><br><span class="line"><span class="comment">//undefined转string语法错误，`Uncaught TypeError: Cannot read property 'toString' of undefined,同样的，undefined没有toString这个API。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> object = &#123;<span class="attr">name</span>:<span class="string">'xiao'</span>&#125;</span><br><span class="line">object.toString()</span><br><span class="line"><span class="comment">// "[object Object]" 有toString这个API，不过结果不是我们想要的，得到的是"[object Object]"，前面小写，后面大写。</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>console.log</code>其实也是用的上面的原理，理论上console.log只能接受字符串，console.log如果发现不是字符串就会调用toString函数，也叫做API。除了console.log很多其它的地方也会如此。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'xiao'</span>)</span><br><span class="line">xiao</span><br><span class="line"><span class="comment">//出来的结果没有引号包裹xiao，是因为浏览器打出的东西是瞎打的，</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>)  <span class="comment">//相当于console.log((1).toString())</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="comment">//虽然没加引号，其实是浏览器省略了。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line">obj[<span class="string">'name'</span>] = <span class="number">1</span>  <span class="comment">//object默认的key是字符串，给的'name'也是字符串，所以打印出来是1。</span></span><br><span class="line"><span class="comment">//1</span></span><br><span class="line"><span class="comment">//obj&#123;name :1&#125;</span></span><br><span class="line"></span><br><span class="line">obj[<span class="number">2</span>] = <span class="number">2</span>		<span class="comment">//但是如果直接给obj一个数字为2的key，它会默认把数字2toString()成字符串，所以</span></span><br><span class="line"><span class="comment">//2				能打印出来2，obj里面也增加了一个字符串2的key。</span></span><br><span class="line"><span class="comment">//obj&#123;2: 2, name: 1&#125;</span></span><br><span class="line"></span><br><span class="line">obj[<span class="literal">true</span>] = <span class="number">3</span>		<span class="comment">//给一个布尔为true的key也是同样的道理，console.log会默认把true转成字符串</span></span><br><span class="line"><span class="comment">//3					 true。</span></span><br><span class="line"><span class="comment">//obj&#123;2: 2, name: 1, true: 3&#125;   //现在obj有三个key了，除了字符串'name'，数字2跟布尔true都是								   自动转换的。</span></span><br><span class="line"></span><br><span class="line">obj[&#123;&#125;] = <span class="number">4</span></span><br><span class="line"><span class="comment">//4</span></span><br><span class="line"><span class="comment">//obj&#123;2: 2,name: 1,true: 3,[object Object]:4&#125;  //道理同上，这里换成了对象调用toString()</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>window.String()</code>示例这个跟加号的功能一样强大,它是一个全局函数</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.String(<span class="number">1</span>)              <span class="comment">//number</span></span><br><span class="line"><span class="string">"1"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.String(<span class="literal">true</span>)			 <span class="comment">//boolean</span></span><br><span class="line"><span class="string">"true"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.String(&#123;&#125;)			 <span class="comment">//object</span></span><br><span class="line"><span class="string">"[object Object]"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.String(<span class="literal">null</span>)			 <span class="comment">//null</span></span><br><span class="line"><span class="string">"null"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.String(<span class="literal">undefined</span>)	 <span class="comment">//undefined</span></span><br><span class="line"><span class="string">"undefined"</span></span><br><span class="line"><span class="comment">// window.可以省略</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>转成boolean的全局函数<code>Boolean()</code>要大写开头</p>
+<ul>
+<li>下面示例</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Boolean</span>(<span class="number">1</span>)</span><br><span class="line"><span class="literal">true</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="number">2</span>)</span><br><span class="line"><span class="literal">true</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="number">0</span>) <span class="comment">//number 0，结果是false</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="string">''</span>) <span class="comment">//空字符串,结果是false</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="string">' '</span>) <span class="comment">//空格字符串</span></span><br><span class="line"><span class="literal">true</span>  </span><br><span class="line"><span class="built_in">Boolean</span>(<span class="string">'1'</span>) <span class="comment">//其它字符串都为true，因为里面有东西</span></span><br><span class="line"><span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="literal">null</span>)  <span class="comment">//null，结果是false</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="literal">undefined</span>) <span class="comment">//undefined，结果是false</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Boolean</span>(&#123;&#125;)  <span class="comment">//空对象，结果是true</span></span><br><span class="line"><span class="literal">true</span></span><br><span class="line"><span class="built_in">Boolean</span>(&#123;<span class="attr">name</span>:<span class="string">'xiao'</span>&#125;) <span class="comment">//只要是对象，结果都是true</span></span><br><span class="line"><span class="literal">true</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yuenwork.github.io/2018/06/18/JS里的类型/" data-id="cjijwcaeb000cqwvfozxa8yv9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-JavaScript的数据类型" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -190,7 +304,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/06/13/JavaScript的数据类型/" data-id="cjida1x8g0002nsvfad1hc9ul" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/06/13/JavaScript的数据类型/" data-id="cjijwcad90002qwvfny17xuy1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -328,7 +442,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/28/css布局总结/" data-id="cjida1x8m0008nsvf6si383w9" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/28/css布局总结/" data-id="cjijwcadp000aqwvfffvzhhu2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -365,7 +479,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/22/随身git服务器/" data-id="cjida1x8x000ensvfwuu4jhk9" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/22/随身git服务器/" data-id="cjijwcaef000fqwvf094dvs1l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -484,7 +598,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/21/css学习笔记/" data-id="cjida1x8k0006nsvfmtwwykpl" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/21/css学习笔记/" data-id="cjijwcadh0006qwvfdolnrryu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -573,7 +687,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/19/css2/" data-id="cjida1x8l0007nsvfqni92svh" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/19/css2/" data-id="cjijwcadd0004qwvfy7h6z4mg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -693,7 +807,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/19/css1/" data-id="cjida1x8j0005nsvf0qgbytc1" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/19/css1/" data-id="cjijwcade0005qwvfbuudz4ow" class="article-share-link">Share</a>
       
       
     </footer>
@@ -761,7 +875,7 @@ http-server -c-1 则不会缓存
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/18/html标签/" data-id="cjida1x8o0009nsvfy8rub331" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/18/html标签/" data-id="cjijwcadk0008qwvfmn8ittkw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1291,7 +1405,7 @@ http-server -c-1 则不会缓存
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/17/HTML/" data-id="cjida1x880000nsvfrzjdyv48" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/17/HTML/" data-id="cjijwcacy0000qwvfo61uo2g0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1369,81 +1483,7 @@ http-server -c-1 则不会缓存
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/15/http/" data-id="cjida1x8u000cnsvftz93p05q" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Hexo使用方法备注" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/14/Hexo使用方法备注/" class="article-date">
-  <time datetime="2018-05-14T13:50:54.000Z" itemprop="datePublished">2018-05-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/14/Hexo使用方法备注/">hexo使用方法备注</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="使用-Hexo-GitHub-可以轻松搞出一个好看的博客"><a href="#使用-Hexo-GitHub-可以轻松搞出一个好看的博客" class="headerlink" title="使用 Hexo + GitHub 可以轻松搞出一个好看的博客"></a>使用 Hexo + GitHub 可以轻松搞出一个好看的博客</h1><ol>
-<li>在 GitHub 上新建一个空 repo，repo 名称是「你的用户名.github.io」（注意个用户名是你的GitHub用户名，不是你的电脑用户名）</li>
-<li>‘npm install -g hexo-cli’，安装 Hexo</li>
-<li>‘hexo init myBlog’</li>
-<li>‘cd myBlog’</li>
-<li>‘npm i’</li>
-<li>‘hexo new xxx’(博客新文章名)</li>
-<li>start _config.yml，编辑网站配置<ol>
-<li>把第 6 行的 title 改成你想要的名字</li>
-<li>把第 9 行的 author 改成你的大名</li>
-<li>把最后一行的 type 改成 type: git</li>
-<li>在最后一行后面新增一行，左边与 type 平齐，加上一行 repo: 仓库地址 （请将仓库地址改为「你的用户名.github.io」对应的仓库地址，仓库地址以 <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>: 开头你知道吧？不知道？不知道的话现在你知道了）,repo后要记得加空格</li>
-</ol>
-</li>
-<li>‘npm install hexo-deployer-git –save’，安装 git 部署插件</li>
-<li>‘hexo deploy’</li>
-<li>进入「你的用户名.github.io」对应的 repo，打开 GitHub Pages 功能，如果已经打开了，就直接点击预览链接,你现在应该看到了你的博客！</li>
-</ol>
-<h1 id="第二篇博客"><a href="#第二篇博客" class="headerlink" title="第二篇博客"></a>第二篇博客</h1><ol>
-<li>hexo new 第二篇博客</li>
-<li>复制显示的路径，使用 start 路径 来编辑它</li>
-<li>‘hexo generate’</li>
-<li>‘hexo deploy’</li>
-<li>去看你的博客，应该能看到第二篇博客了</li>
-</ol>
-<p>#换主题</p>
-<ol>
-<li><a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="noopener">https://github.com/hexojs/hexo/wiki/Themes</a> 上面有主题合集</li>
-<li>随便找一个主题，进入主题的 GitHub 首页，比如我找的是 <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a></li>
-<li>复制它的 SSH 地址或 HTTPS 地址，假设地址为 <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:iissnan/hexo-theme-next.git</li>
-<li>‘cd themes’</li>
-<li>‘git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:iissnan/hexo-theme-next.git’</li>
-<li>‘cd ..’</li>
-<li>将 _config.yml 的第 75 行改为 theme: hexo-theme-next，保存</li>
-<li>‘hexo generate’</li>
-<li>‘hexo deploy’</li>
-<li>‘等一分钟，然后刷新你的博客页面，你会看到一个新的外观。如果不喜欢这个主题，就回到第 1 步，重选一个主题。’</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/14/Hexo使用方法备注/" data-id="cjida1x8h0003nsvf5ns7jteh" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/15/http/" data-id="cjijwcae9000bqwvfyajod6kd" class="article-share-link">Share</a>
       
       
     </footer>
