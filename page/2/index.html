@@ -76,7 +76,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">14</span></li></ul>
     </div>
   </div>
 
@@ -86,6 +86,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/06/18/js里的对象/">js里的对象</a>
+          </li>
         
           <li>
             <a href="/2018/06/18/JS里的类型/">JS里的类型</a>
@@ -101,10 +105,6 @@
         
           <li>
             <a href="/2018/05/22/随身git服务器/">随身git服务器</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/21/css学习笔记/">css学习笔记</a>
           </li>
         
       </ul>
@@ -134,6 +134,84 @@
 </aside>
         
         <section id="main">
+  
+    <article id="post-http" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/15/http/" class="article-date">
+  <time datetime="2018-05-15T13:40:10.000Z" itemprop="datePublished">2018-05-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/15/http/">http</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="请求与响应"><a href="#请求与响应" class="headerlink" title="请求与响应"></a>请求与响应</h2><p>Server + Client + HTTP</p>
+<ol>
+<li>浏览器负责发起请求</li>
+<li>服务器在 80 端口接收请求</li>
+<li>服务器负责返回内容（响应）</li>
+<li>浏览器负责下载响应内容<br>HTTP 的作用就是指导浏览器和服务器如何进行沟通。</li>
+</ol>
+<h3 id="请求示例"><a href="#请求示例" class="headerlink" title="请求示例"></a>请求示例</h3><p><code>curl -s -v -H &quot;Frank: xxx&quot; -- &quot;https://www.baidu.com&quot;</code><br>请求的内容为<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: www.baidu.com</span><br><span class="line"><span class="attribute">User-Agent</span>: curl/7.54.0</span><br><span class="line"><span class="attribute">Accept</span>: */*</span><br><span class="line"><span class="attribute">Frank</span>: xxx</span><br></pre></td></tr></table></figure></p>
+<p><code>curl -X POST -s -v -H &quot;Frank: xxx&quot; -- &quot;https://www.baidu.com&quot;</code><br>请求的内容为<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: www.baidu.com</span><br><span class="line"><span class="attribute">User-Agent</span>: curl/7.54.0</span><br><span class="line"><span class="attribute">Accept</span>: */*</span><br><span class="line"><span class="attribute">Frank</span>: xxx</span><br></pre></td></tr></table></figure></p>
+<p><code>curl -X POST -d &quot;1234567890&quot; -s -v -H &quot;Frank: xxx&quot; -- &quot;https://www.baidu.com&quot;</code><br>请求的内容为<br><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">POST</span> <span class="string">/</span> HTTP/1.1</span><br><span class="line"><span class="attribute">Host</span>: www.baidu.com</span><br><span class="line"><span class="attribute">User-Agent</span>: curl/7.54.0</span><br><span class="line"><span class="attribute">Accept</span>: */*</span><br><span class="line"><span class="attribute">Frank</span>: xxx</span><br><span class="line"><span class="attribute">Content-Length</span>: 10</span><br><span class="line"><span class="attribute">Content-Type</span>: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line"><span class="attribute">1234567890</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="请求的格式"><a href="#请求的格式" class="headerlink" title="请求的格式"></a>请求的格式</h2><p>1 动词 路径 协议/版本<br>2 Key1: value1<br>2 Key2: value2<br>2 Key3: value3<br>2 Content-Type: application/x-www-form-urlencoded<br>2 Host: <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><br>2 User-Agent: curl/7.54.0<br>3<br>4 要上传的数据</p>
+<ol>
+<li>请求最多包含四部分，最少包含三部分。（也就是说第四部分可以为空）</li>
+<li>第三部分永远都是一个回车（\n）</li>
+<li>动词有 GET POST PUT PATCH DELETE HEAD OPTIONS 等</li>
+<li>这里的路径包括「查询参数」，但不包括「锚点」</li>
+<li>如果你没有写路径，那么路径默认为 /</li>
+<li>第 2 部分中的 Content-Type 标注了第 4 部分的格式</li>
+</ol>
+<h2 id="响应的格式"><a href="#响应的格式" class="headerlink" title="响应的格式"></a>响应的格式</h2><p>1 协议/版本号 状态码 状态解释<br>2 Key1: value1<br>2 Key2: value2<br>2 Content-Length: 17931<br>2 Content-Type: text/html<br>3<br>4 要下载的内容</p>
+<p>##状态码</p>
+<ol>
+<li>1xx 不常用</li>
+<li>2xx 表示成功</li>
+<li>3xx 表示滚吧</li>
+<li>4xx 表示你丫错了</li>
+<li>5xx 表示好吧，我错了</li>
+</ol>
+<p>##用 Chrome 查看响应</p>
+<ol>
+<li>打开 Network</li>
+<li>输入网址</li>
+<li>选中第一个响应</li>
+<li>查看 Response Headers，点击「view source」，点击「view source」，点击「view source」</li>
+<li>你会看到响应的前两部分</li>
+<li>查看 Response 或者 Preview，你会看到响应的第 41 部分</li>
+</ol>
+<h2 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h2><p><img src="/img/request.png" alt="request"></p>
+<h2 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h2><p><img src="/img/response.png" alt="response"></p>
+<h2 id="curl命令是一个利用URL规则在命令行下工作的文件传输工具。它支持文件的上传和下载，所以是综合传输工具，但按传统，习惯称curl为下载工具。作为一款强力工具，curl支持包括HTTP、HTTPS、ftp等众多协议，还支持POST、cookies、认证、从指定偏移处下载部分文件、用户代理字符串、限速、文件大小、进度条等特征。做网页处理流程和数据检索自动化，curl可以祝一臂之力。"><a href="#curl命令是一个利用URL规则在命令行下工作的文件传输工具。它支持文件的上传和下载，所以是综合传输工具，但按传统，习惯称curl为下载工具。作为一款强力工具，curl支持包括HTTP、HTTPS、ftp等众多协议，还支持POST、cookies、认证、从指定偏移处下载部分文件、用户代理字符串、限速、文件大小、进度条等特征。做网页处理流程和数据检索自动化，curl可以祝一臂之力。" class="headerlink" title="curl命令是一个利用URL规则在命令行下工作的文件传输工具。它支持文件的上传和下载，所以是综合传输工具，但按传统，习惯称curl为下载工具。作为一款强力工具，curl支持包括HTTP、HTTPS、ftp等众多协议，还支持POST、cookies、认证、从指定偏移处下载部分文件、用户代理字符串、限速、文件大小、进度条等特征。做网页处理流程和数据检索自动化，curl可以祝一臂之力。"></a>curl命令是一个利用URL规则在命令行下工作的文件传输工具。它支持文件的上传和下载，所以是综合传输工具，但按传统，习惯称curl为下载工具。作为一款强力工具，curl支持包括HTTP、HTTPS、ftp等众多协议，还支持POST、cookies、认证、从指定偏移处下载部分文件、用户代理字符串、限速、文件大小、进度条等特征。做网页处理流程和数据检索自动化，curl可以祝一臂之力。</h2><h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>###文件下载<br>curl命令可以用来执行下载、发送各种HTTP请求，指定HTTP头部等操作。如果系统没有curl可以使用yum install curl安装，也可以下载安装。curl是将下载文件输出到stdout，将进度信息输出到stderr，不显示进度信息使用–silent选项。<br><code>curl URL --silent</code></p>
+<p>这条命令是将下载文件输出到终端，所有下载的数据都被写入到stdout。<br>使用选项-O将下载的数据写入到文件，必须使用文件的绝对地址：<br><code>curl http://man.linuxde.net/text.iso --silent -O</code><br>选项-o将下载数据写入到指定名称的文件中，并使用–progress显示进度条：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl http://man.linuxde.net/test.iso -o filename.iso --progress</span><br><span class="line"><span class="comment">######################################### 100.0%</span></span><br></pre></td></tr></table></figure></p>
+<p>##更多方法,可以参考<a href="http://man.linuxde.net/curl" target="_blank" rel="noopener">curl命令帮助</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yuenwork.github.io/2018/05/15/http/" data-id="cjijwiq5z000dk0vfk65s6e14" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-Hexo使用方法备注" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -199,7 +277,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/14/Hexo使用方法备注/" data-id="cjijwcadb0003qwvf4n2azfjn" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/14/Hexo使用方法备注/" data-id="cjijwiq5k0002k0vfamk0eec0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -239,7 +317,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/14/nodejs部分文件操作命令/" data-id="cjijwcaee000eqwvfwbg4yrwk" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/14/nodejs部分文件操作命令/" data-id="cjijwiq5x000bk0vfzxk12xy4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -281,7 +359,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/14/Linux基础/" data-id="cjijwcadi0007qwvfkjlzbazu" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/14/Linux基础/" data-id="cjijwiq5m0004k0vfci65ucep" class="article-share-link">Share</a>
       
       
     </footer>
@@ -326,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/14/hello-world/" data-id="cjijwcadn0009qwvf7wo0wyh7" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/14/hello-world/" data-id="cjijwiq5v000ak0vfbsfxhll8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -366,7 +444,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/14/Git基础/" data-id="cjijwcad50001qwvffsc1j4sc" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/14/Git基础/" data-id="cjijwiq5c0000k0vfh6t0qvf2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -403,7 +481,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/13/开博大吉/" data-id="cjijwcaec000dqwvfjppjajr4" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/13/开博大吉/" data-id="cjijwiq5y000ck0vfyr43dupv" class="article-share-link">Share</a>
       
       
     </footer>

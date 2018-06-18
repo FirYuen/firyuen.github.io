@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>js里的对象 | yuenwork&#39;Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么是标准库? js的内存里面有两种东西，一个是stack（栈内存），一个是heap（堆内存），stack里面有个特别重要的变量叫做global，在浏览器里面叫做window，他们是一样的都是同一个对象。window是一个对象，window就对应heap里面一块内存，window是一个哈希表，哈希表里面的东西分两部分，一部分就叫做标准库，另一部分叫做非标准库。  标准库包括哪些呢？比如Object">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js里的对象">
+<meta property="og:url" content="https://yuenwork.github.io/2018/06/18/js里的对象/index.html">
+<meta property="og:site_name" content="yuenwork&#39;Blog">
+<meta property="og:description" content="什么是标准库? js的内存里面有两种东西，一个是stack（栈内存），一个是heap（堆内存），stack里面有个特别重要的变量叫做global，在浏览器里面叫做window，他们是一样的都是同一个对象。window是一个对象，window就对应heap里面一块内存，window是一个哈希表，哈希表里面的东西分两部分，一部分就叫做标准库，另一部分叫做非标准库。  标准库包括哪些呢？比如Object">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://p0mf9ztbm.bkt.clouddn.com/17-12-8/11523085.jpg">
+<meta property="og:image" content="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/33582031.jpg">
+<meta property="og:image" content="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/12214723.jpg">
+<meta property="og:image" content="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/90343838.jpg">
+<meta property="og:image" content="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/11213113.jpg">
+<meta property="og:image" content="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/4291338.jpg">
+<meta property="og:image" content="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/55013552.jpg">
+<meta property="og:image" content="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/21878716.jpg">
+<meta property="og:image" content="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/11724928.jpg">
+<meta property="og:image" content="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/5351149.jpg">
+<meta property="og:image" content="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/32443819.jpg">
+<meta property="og:image" content="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/17324027.jpg">
+<meta property="og:image" content="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/48534517.jpg">
+<meta property="og:image" content="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/256795.jpg">
+<meta property="og:image" content="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/98458059.jpg">
+<meta property="og:updated_time" content="2018-06-18T06:51:06.973Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js里的对象">
+<meta name="twitter:description" content="什么是标准库? js的内存里面有两种东西，一个是stack（栈内存），一个是heap（堆内存），stack里面有个特别重要的变量叫做global，在浏览器里面叫做window，他们是一样的都是同一个对象。window是一个对象，window就对应heap里面一块内存，window是一个哈希表，哈希表里面的东西分两部分，一部分就叫做标准库，另一部分叫做非标准库。  标准库包括哪些呢？比如Object">
+<meta name="twitter:image" content="http://p0mf9ztbm.bkt.clouddn.com/17-12-8/11523085.jpg">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'> -->
+  <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css"> -->
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css">
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <a href="/" class="logo">yuenwork&#39;Blog</a>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about/index.html">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yuenwork.github.io"></form>
+        </div>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        
+        
+          <a id="nav-github-link" class="nav-icon" href="https://github.com/ppoffice/hexo-theme-alex" title="Fork me on GitHub"></a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+      <nav id="mobile-nav" class="off">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/index.html" class="mobile-nav-link">About</a>
+  
+  <div id="search-form-wrap-mobile">
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yuenwork.github.io"></form>
+  </div>
+</nav>
+      <div class="outer">
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">14</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/18/js里的对象/">js里的对象</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/18/JS里的类型/">JS里的类型</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/13/JavaScript的数据类型/">JavaScript的数据类型</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/28/css布局总结/">css布局总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/22/随身git服务器/">随身git服务器</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://hexo.io">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+        <section id="main"><article id="post-js里的对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/18/js里的对象/" class="article-date">
+  <time datetime="2018-06-18T06:50:58.000Z" itemprop="datePublished">2018-06-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js里的对象
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="什么是标准库"><a href="#什么是标准库" class="headerlink" title="什么是标准库?"></a>什么是标准库?</h5><ul>
+<li><p>js的内存里面有两种东西，一个是stack（栈内存），一个是heap（堆内存），stack里面有个特别重要的变量叫做global，在浏览器里面叫做window，他们是一样的都是同一个对象。window是一个对象，window就对应heap里面一块内存，window是一个哈希表，哈希表里面的东西分两部分，一部分就叫做<strong>标准库</strong>，另一部分叫做非标准库。</p>
+</li>
+<li><p>标准库包括哪些呢？比如Object()函数，这个函数也是个对象，它有一个key()属性，create()方法；还有String()函数，Nubmer()函数，Array()函数，Boolean()、Function()。</p>
+<p>图示:<img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-8/11523085.jpg" alt=""></p>
+</li>
+</ul>
+<h5 id="简单类型跟复杂类型加new与不加的区别"><a href="#简单类型跟复杂类型加new与不加的区别" class="headerlink" title="简单类型跟复杂类型加new与不加的区别"></a>简单类型跟复杂类型加new与不加的区别</h5><ul>
+<li><p>给Object传什么它就会把它包装成一个什么对象,传给它一个1就把1包装成Number对象，给它一个字符串就包装成一个字符串对象，如果什么都不给就会生成一个空对象；对于Object来说加不加new都一样。如下图：<img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/33582031.jpg" alt=""></p>
+</li>
+<li><p>String是将给的东西变成一个字符串常量（非对象，基本类型），如果加new就会生成String对象如下图：<img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/12214723.jpg" alt=""></p>
+</li>
+<li><p>Number与String同理，给Number一个不能变成数字的东西变成NaN，给一个可以变的变成number常量，如果加了new就会返回一个number对象。如下图：<img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/90343838.jpg" alt=""></p>
+</li>
+<li><p>Boolean会把提供的任何东西变成一个布尔值，另外记住5个falsy值(0、NaN、’’、null、undefined)，new Boolean则会返回一个Boolean 对象如下图:<img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/11213113.jpg" alt=""></p>
+</li>
+<li><p>所以除了Object加或者不加new没区别，其余的类型加new都会返回一个相应的对象。</p>
+</li>
+<li><h5 id="总结，全局变量分两种，一种是对应的原本是七种数据类型中的基本类型（number、string、boolean）（null、undefined没有构造函数）；另一种跟对象相关的obejct（包括两种特殊的obejct，array和function）；如果是基本类型对应的构造函数，加new与不加new的区别就是，不加new的时候返回一个基本类型，如果加了new返回一个复杂类型（对象）；如果是object复杂类型，加new不加new是一样的。都返回一个对象。"><a href="#总结，全局变量分两种，一种是对应的原本是七种数据类型中的基本类型（number、string、boolean）（null、undefined没有构造函数）；另一种跟对象相关的obejct（包括两种特殊的obejct，array和function）；如果是基本类型对应的构造函数，加new与不加new的区别就是，不加new的时候返回一个基本类型，如果加了new返回一个复杂类型（对象）；如果是object复杂类型，加new不加new是一样的。都返回一个对象。" class="headerlink" title="总结，全局变量分两种，一种是对应的原本是七种数据类型中的基本类型（number、string、boolean）（null、undefined没有构造函数）；另一种跟对象相关的obejct（包括两种特殊的obejct，array和function）；如果是基本类型对应的构造函数，加new与不加new的区别就是，不加new的时候返回一个基本类型，如果加了new返回一个复杂类型（对象）；如果是object复杂类型，加new不加new是一样的。都返回一个对象。"></a><strong>总结</strong>，全局变量分两种，一种是对应的原本是七种数据类型中的基本类型（number、string、boolean）（null、undefined没有构造函数）；另一种跟对象相关的obejct（包括两种特殊的obejct，array和function）；如果是基本类型对应的构造函数，加new与不加new的区别就是，不加new的时候返回一个基本类型，如果加了new返回一个复杂类型（对象）；如果是object复杂类型，加new不加new是一样的。都返回一个对象。<img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/4291338.jpg" alt=""></h5></li>
+</ul>
+<h5 id="新的API-Array"><a href="#新的API-Array" class="headerlink" title="新的API  Array"></a>新的API  Array</h5><p>Array是一个构造数组的<strong>全局对象</strong>(七种数据类型Nubmer、String、Boolean、Symbol、null、undefined、Object[Array、Function])</p>
+<p><strong>创建数组：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> f = [<span class="string">'a'</span>,<span class="string">'b'</span>]</span><br><span class="line"><span class="keyword">let</span> f = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">'a'</span>,<span class="string">'b'</span>)   <span class="comment">//两种写法等价</span></span><br></pre></td></tr></table></figure>
+<p><strong>Array构造函数的两种用法：</strong>一个或者多个参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">Array</span>(<span class="number">3</span>)</span><br><span class="line"><span class="comment">//生成一个长度为给的数字(3)的数组，不含0,1，2，有三个undefined，第一个参数是长度</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="built_in">Array</span>(<span class="number">3</span>,<span class="number">3</span>)</span><br><span class="line"><span class="comment">//当是一个参数的时候，第一个参数是长度，当有两个参数的时候，第一个参数不是长度，它是第一项</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>首先第一种用法<code>var a = Array(3)</code>，它会生成一个长度为3，每一个都是undefined的数组a[0]是undefined，a[1]是undefined，a[2]也是undefined；但是又不在a里面，也就是说a没有012，这时候最好画内存图，在研究数据的时候最好的方式就是画内存图。</p>
+<p><strong>console图</strong>如下：</p>
+<p><img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/55013552.jpg" alt=""></p>
+<p><strong>内存图</strong>演示，当写<code>var a = Array(3)</code>的时候到底做了什么，在stack里面声明了一个地址，a指向这个地址（ADR99），heap对应的ADR99里面存了一个<code>length:3</code>以及一个<code>__proto__</code>指向<code>Array.prototype</code>（Array的公有属性）；也就是说当写<code>var a = Array(3)</code>的时候它生成了一个对象，这个对象里面写了一个<code>length:3</code>以及<code>--proto</code>指向公有属性（Array.prototype），公用属性里面还包括一些<code>push</code>、<code>shift</code>之类的函数。0，1，2，3并没有存到heap对应的ADR99中。内存图解如下：</p>
+<p><img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/21878716.jpg" alt=""></p>
+<p>再来重新看代码<code>a.length // 3</code>对应上图中的<code>length:3</code>,<code>a.push</code>函数也是存在的，因为可以在公用属性<code>__poroto__</code>找到，可以通过<code>console.dir(a)</code>把a打印出来。a的第一层只有<code>length: 3</code>以及<code>__poroto__:Array(0)</code>指向的一个哈希函数（<code>a.__proto__</code>等于等于<code>Array.prototype</code>(Array构造它的函数)）<img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/11724928.jpg" alt=""></p>
+<hr>
+<p>第二种用法<code>var a = Array(3,3)</code>，当有两个参数的时候，第一个参数不是长度，它是第一项</p>
+<p>如图：<img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/5351149.jpg" alt=""></p>
+<hr>
+<p>所以<code>var a = Array(3)</code>和<code>var a = Array(3,3)</code>对应的东西并不相同，同样是3，同样的位置，同一个函数却因为参数个数不同而不相同，这叫做JS的不一致性，这也是JS的缺点所在如图：<img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/32443819.jpg" alt=""></p>
+<hr>
+<p>由于Array也属于Object，所以Array加不加new并没有区别。<img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/17324027.jpg" alt=""></p>
+<h5 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h5><p>类比array的<code>var a = new Array(1,2,3)</code>与<code>var a = [1,2,3]</code>写法function也有可有有下面两种写法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b</span><br><span class="line">&#125;  <span class="comment">// f(1,2) 返回3</span></span><br><span class="line"><span class="comment">//上面可以用它的构造函数构造出来</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> Founction(<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'return a+b'</span>)  <span class="comment">//f(1,2)同样返回3</span></span><br></pre></td></tr></table></figure>
+<p>函数有参数，必须有返回值<code>return a+b</code> 同时可以用它的构造函数构造出来。先传一个字符串表示<strong>第一个参数</strong>                 名字，再传一个字符串表示<strong>第二个参数</strong>名字，最后传一个字符串表示<strong>函数体</strong><code>&#39;return a+b&#39;</code></p>
+<p>new Function的用法就是把所有东西变成字符串依次排开</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'return a+b'</span>)</span><br></pre></td></tr></table></figure>
+<p><em>MDN语法</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Function</span> ([arg1[, arg2[, ...argN]],] functionBody)</span><br><span class="line"><span class="comment">//用[]标的叫做可选，意思是可以只传一个参数，两个参数或者N个参数，也可以不传参数只传函数体，另外加不加new没区别。</span></span><br></pre></td></tr></table></figure>
+<h5 id="Function与function的区别"><a href="#Function与function的区别" class="headerlink" title="Function与function的区别"></a>Function与function的区别</h5><ul>
+<li><p>function是关键字，是函数的意思，没有任何意义，同样的关键字还有(var、if、else等等)，下面举例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  <span class="comment">//声明一个变量</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>  <span class="comment">//声明一个a，a不一定是函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> //声明一个函数</span></span><br><span class="line"><span class="function"><span class="title">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;&#125; <span class="comment">//声明一个f，f一定是个函数</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Function是一个全局对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.Function</span><br><span class="line"><span class="built_in">window</span>.Object</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>七种基本类型（number、string、boolean、symbol、null、undefined、object）的大小写无所谓，因为它们只是一个字符串，例如字符串它的英文是<code>string</code>用大写<code>String</code>表示也可以仅此而已。举例声明一个string</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> <span class="built_in">String</span>()   <span class="comment">//因为没有小写string这个关键字，所以用String，</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/48534517.jpg" alt=""></p>
+<p>同理function就是表示函数的意思关键字，跟代码没有任何关系。声明函数必须用<code>function f</code></p>
+</li>
+<li><p>声明一个函数的两种方法，function跟Function都可以，记住分别怎么用就行了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'x+y'</span>)  <span class="comment">//用一个变量去引用一个对象，另外new可以省略。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>声明函数的几种方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">具名函数 </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x,y</span>)</span>&#123;      <span class="comment">//x,y是参数，可以没有</span></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">undefined</span>  <span class="comment">//一定要有return，就算不写也会自动加一个undefined</span></span><br><span class="line">&#125;</span><br><span class="line">匿名函数 </span><br><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line">Funtion                <span class="comment">//一般不用这个方法</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'x+y'</span>)</span><br><span class="line"><span class="comment">//前两种用关键字声明函数，最后面的是用全局对象在声明一个对象函数.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>拆解</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span> <span class="comment">//变形成成下面</span></span><br><span class="line"><span class="keyword">var</span> a</span><br><span class="line">a = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;<span class="comment">//变形成下面,所以这是两句话,声明函数只有上面两种方法(关键字和new Function)</span></span><br><span class="line"><span class="keyword">var</span> f   <span class="comment">//先去声明一个f变量</span></span><br><span class="line">f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;   <span class="comment">//然后让f等于一个匿名函数,内存图如下</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/256795.jpg" alt=""></p>
+<p>如果现在让f=1那么就会将stack里面的A88地址擦掉换成1,中间的联系就会断掉,但是函数function(){}还在,f跟function没有任何关系.<code>var f = function(){}</code>是两步,一步是弄一个变量<code>f</code>一步是弄一个对象<code>function(){}</code>然后将它们联系起来,所以<code>var f = function(){}</code>不是一个语法,声明函数只有上面两种方法(关键字和new Function)<img src="http://p0mf9ztbm.bkt.clouddn.com/17-12-9/98458059.jpg" alt=""></p>
+</li>
+<li><p>具名函数跟匿名函数的区别</p>
+<p>具名函数一步做到初始化然后赋值,匿名函数是先声明一个变量<code>f</code>,然后再弄一个匿名函数,然后把变量<code>f</code>指向<code>function (){}</code>分两步.</p>
+<hr>
+<h5 id="数组-amp-a-forEach"><a href="#数组-amp-a-forEach" class="headerlink" title="数组&amp;a.forEach"></a>数组&amp;a.forEach</h5><p>​</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yuenwork.github.io/2018/06/18/js里的对象/" data-id="cjijwiq6a000gk0vfl4ta1l1w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/18/JS里的类型/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JS里的类型</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="/" class="logo">yuenwork&#39;Blog</a>
+      &copy; 2018 yuenwork<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.scrollLoading.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
