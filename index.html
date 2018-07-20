@@ -171,9 +171,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>JS这门语言有多神经质想必大家都已经心照不宣了，要说jQuery，那必须得从像老太婆又臭又长裹脚布一样的DOM原生API开始说起啊。<br>想要获取页面上的一个节点，对它做一些为所欲为的事情我需要：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var 这个节点 = document.getElementById(&apos;这个节点的id&apos;)</span><br></pre></td></tr></table></figure></p>
-<p>先别说对它做什么了，仅仅是一个变量声明，我得敲一会。。。接下来，要是我想点击它，让他藏起来我需要：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这个节点.onclick = function()&#123;</span><br><span class="line">    这个节点.style.display = &apos;none&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>太费劲了，更别说更加复杂一点的操作了，比如我想看看这个节点有哪些兄弟元素：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function getSiblings(node)&#123;</span><br><span class="line">    var allChildren = node.parentNode.children</span><br><span class="line"></span><br><span class="line">    //这只是一个哈希，伪数组</span><br><span class="line">    var array = &#123;</span><br><span class="line">        length: 0</span><br><span class="line">    &#125;</span><br><span class="line">    for(let i =0;i &lt; allChildren.length;i++)&#123;</span><br><span class="line">        if(allChildren[i] !== node)&#123;</span><br><span class="line">            array[array.length] = allChildren[i]</span><br><span class="line">            array.length +=1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return array</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>从DOM原生API开始说起,<br>想要获取页面上的一个节点，对它做一些为所欲为的事情我需要：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var 这个节点 = document.getElementById(&apos;这个节点的id&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>接下来，要是我想点击它，让他藏起来我需要：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这个节点.onclick = function()&#123;</span><br><span class="line">    这个节点.style.display = &apos;none&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我想看看这个节点有哪些兄弟元素：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function getSiblings(node)&#123;</span><br><span class="line">    var allChildren = node.parentNode.children</span><br><span class="line"></span><br><span class="line">    //这只是一个哈希，伪数组</span><br><span class="line">    var array = &#123;</span><br><span class="line">        length: 0</span><br><span class="line">    &#125;</span><br><span class="line">    for(let i =0;i &lt; allChildren.length;i++)&#123;</span><br><span class="line">        if(allChildren[i] !== node)&#123;</span><br><span class="line">            array[array.length] = allChildren[i]</span><br><span class="line">            array.length +=1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return array</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>或者想给这个节点添加多个Class<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function addClass(node,classes)&#123;</span><br><span class="line">    for(let key in classes)&#123;</span><br><span class="line">        var value = classes[key]</span><br><span class="line">        if(value)&#123;</span><br><span class="line">            node.classList.add(key)</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            node.classList.remove(key)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
         
           <p class="article-more-link">
@@ -183,7 +183,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/07/22/jQuery/" data-id="cjju3q67q000a5ovf83hojq8y" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/07/22/jQuery/" data-id="cjju3yhgc000ccovfo7r0ry3g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
@@ -296,7 +296,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/06/18/js里的对象/" data-id="cjju3q68b000j5ovfimxanfb5" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/06/18/js里的对象/" data-id="cjju3yhgv000jcovfktam9ngc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -410,7 +410,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/06/18/JS里的类型/" data-id="cjju3q68a000i5ovfn7jnchxg" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/06/18/JS里的类型/" data-id="cjju3yhgt000icovf0gbp784r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -475,7 +475,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/06/13/JavaScript的数据类型/" data-id="cjju3q67i00035ovftn6ixybn" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/06/13/JavaScript的数据类型/" data-id="cjju3yhg10003covfra7mz99v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -613,7 +613,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/28/css布局总结/" data-id="cjju3q67p00095ovfkbjzjol9" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/28/css布局总结/" data-id="cjju3yhg60007covfbm5kb7uj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -650,7 +650,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/22/随身git服务器/" data-id="cjju3q67z000f5ovf3o72krtg" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/22/随身git服务器/" data-id="cjju3yhgj000gcovfpzmfuw6z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -769,7 +769,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/21/css学习笔记/" data-id="cjju3q67m00075ovfnjj3cvax" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/21/css学习笔记/" data-id="cjju3yhg50006covf0iz7of2n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -858,7 +858,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/19/css2/" data-id="cjju3q67m00065ovf0ase34b6" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/19/css2/" data-id="cjju3yhg9000acovf0nei060c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -978,7 +978,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/19/css1/" data-id="cjju3q67l00055ovfn2d46lbr" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/19/css1/" data-id="cjju3yhg30005covf8yf8g65c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1010,7 +1010,7 @@ false       //false
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="lt-iframe-gt-和-lt-a-gt-标签"><a href="#lt-iframe-gt-和-lt-a-gt-标签" class="headerlink" title="&lt;iframe&gt; 和 &lt;a&gt; 标签"></a><code>&lt;iframe&gt;</code> 和 <code>&lt;a&gt;</code> 标签</h2><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=<span class="string">"https://www.baidu.com"</span> name=<span class="string">"xxx"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span><br><span class="line">&lt;a href=<span class="string">""</span> target=<span class="string">"xxx"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">a</span> &gt;</span></span></span><br></pre></td></tr></table></figure>
+        <h2 id="lt-iframe-gt-和-lt-a-gt-标签"><a href="#lt-iframe-gt-和-lt-a-gt-标签" class="headerlink" title="&lt;iframe&gt; 和 &lt;a&gt; 标签"></a><code>&lt;iframe&gt;</code> 和 <code>&lt;a&gt;</code> 标签</h2><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=<span class="string">"https://www.baidu.com"</span> name=<span class="string">"xxx"</span>&gt;&lt;/iframe&gt;</span><br><span class="line">&lt;a href=<span class="string">""</span> target=<span class="string">"xxx"</span>&gt;&lt;/a &gt;</span><br></pre></td></tr></table></figure>
 
 `&lt;iframe&gt;`元素用于在当前网页嵌套页面,`&lt;iframe&gt;`最好少用了
 `frameborder=0`用来消除默认边框
@@ -1046,7 +1046,7 @@ http-server -c-1 则不会缓存
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/18/html标签/" data-id="cjju3q680000h5ovfysio0es4" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/18/html标签/" data-id="cjju3yhg80009covf1gilt1uu" class="article-share-link">Share</a>
       
       
     </footer>
