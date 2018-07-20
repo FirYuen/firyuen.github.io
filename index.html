@@ -76,7 +76,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">14</span></li></ul>
     </div>
   </div>
 
@@ -86,6 +86,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/07/22/jQuery/">jQuery不过如此</a>
+          </li>
         
           <li>
             <a href="/2018/06/18/js里的对象/">js里的对象</a>
@@ -103,18 +107,28 @@
             <a href="/2018/05/28/css布局总结/">css布局总结</a>
           </li>
         
-          <li>
-            <a href="/2018/05/22/随身git服务器/">随身git服务器</a>
-          </li>
-        
       </ul>
     </div>
   </div>
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
@@ -134,6 +148,52 @@
 </aside>
         
         <section id="main">
+  
+    <article id="post-jQuery" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/22/jQuery/" class="article-date">
+  <time datetime="2018-07-22T08:54:54.000Z" itemprop="datePublished">2018-07-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/22/jQuery/">jQuery不过如此</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JS这门语言有多神经质想必大家都已经心照不宣了，要说jQuery，那必须得从像老太婆又臭又长裹脚布一样的DOM原生API开始说起啊。<br>想要获取页面上的一个节点，对它做一些为所欲为的事情我需要：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var 这个节点 = document.getElementById(&apos;这个节点的id&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>先别说对它做什么了，仅仅是一个变量声明，我得敲一会。。。接下来，要是我想点击它，让他藏起来我需要：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这个节点.onclick = function()&#123;</span><br><span class="line">    这个节点.style.display = &apos;none&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>太费劲了，更别说更加复杂一点的操作了，比如我想看看这个节点有哪些兄弟元素：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function getSiblings(node)&#123;</span><br><span class="line">    var allChildren = node.parentNode.children</span><br><span class="line"></span><br><span class="line">    //这只是一个哈希，伪数组</span><br><span class="line">    var array = &#123;</span><br><span class="line">        length: 0</span><br><span class="line">    &#125;</span><br><span class="line">    for(let i =0;i &lt; allChildren.length;i++)&#123;</span><br><span class="line">        if(allChildren[i] !== node)&#123;</span><br><span class="line">            array[array.length] = allChildren[i]</span><br><span class="line">            array.length +=1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return array</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或者想给这个节点添加多个Class<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function addClass(node,classes)&#123;</span><br><span class="line">    for(let key in classes)&#123;</span><br><span class="line">        var value = classes[key]</span><br><span class="line">        if(value)&#123;</span><br><span class="line">            node.classList.add(key)</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            node.classList.remove(key)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        
+          <p class="article-more-link">
+            <a href="/2018/07/22/jQuery/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yuenwork.github.io/2018/07/22/jQuery/" data-id="cjju3q67q000a5ovf83hojq8y" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-js里的对象" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -236,7 +296,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/06/18/js里的对象/" data-id="cjijwiq6a000gk0vfl4ta1l1w" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/06/18/js里的对象/" data-id="cjju3q68b000j5ovfimxanfb5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -350,7 +410,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/06/18/JS里的类型/" data-id="cjijwiq69000fk0vfj9usm9dr" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/06/18/JS里的类型/" data-id="cjju3q68a000i5ovfn7jnchxg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -415,7 +475,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/06/13/JavaScript的数据类型/" data-id="cjijwiq5l0003k0vfpv1tszhh" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/06/13/JavaScript的数据类型/" data-id="cjju3q67i00035ovftn6ixybn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -553,7 +613,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/28/css布局总结/" data-id="cjijwiq5n0005k0vfvz28sf3k" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/28/css布局总结/" data-id="cjju3q67p00095ovfkbjzjol9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -590,7 +650,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/22/随身git服务器/" data-id="cjijwiq60000ek0vfn0b88608" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/22/随身git服务器/" data-id="cjju3q67z000f5ovf3o72krtg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -709,7 +769,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/21/css学习笔记/" data-id="cjijwiq5p0006k0vfrzys47td" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/21/css学习笔记/" data-id="cjju3q67m00075ovfnjj3cvax" class="article-share-link">Share</a>
       
       
     </footer>
@@ -798,7 +858,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/19/css2/" data-id="cjijwiq5q0007k0vfwpfdip1m" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/19/css2/" data-id="cjju3q67m00065ovf0ase34b6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -918,7 +978,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/19/css1/" data-id="cjijwiq5r0008k0vf99x704b5" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/19/css1/" data-id="cjju3q67l00055ovfn2d46lbr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -986,537 +1046,7 @@ http-server -c-1 则不会缓存
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/18/html标签/" data-id="cjijwiq5t0009k0vfwxnlp3nf" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-HTML" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/17/HTML/" class="article-date">
-  <time datetime="2018-05-17T12:58:17.000Z" itemprop="datePublished">2018-05-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/17/HTML/">HTML</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#HTML</p>
-<h2 id="Dribble-com"><a href="#Dribble-com" class="headerlink" title="Dribble.com"></a>Dribble.com</h2><p>可以经常去逛逛</p>
-<ol>
-<li>查看优秀的设计作品</li>
-<li>如果不知道做什么项目，可以去 Dribbble.com 上仿制几个作品</li>
-<li>中文名称追波网，逼格很高</li>
-</ol>
-<h2 id="HTML-中-lt-b-gt-标签和-lt-strong-gt-标签有什么区别？"><a href="#HTML-中-lt-b-gt-标签和-lt-strong-gt-标签有什么区别？" class="headerlink" title="HTML 中 &lt;b&gt; 标签和 &lt;strong&gt; 标签有什么区别？"></a>HTML 中 <code>&lt;b&gt;</code> 标签和 <code>&lt;strong&gt;</code> 标签有什么区别？</h2><p> <code>b</code> 表示样式上的加粗，<code>strong</code> 表示内容重要。</p>
-<h2 id="html标签中英翻译"><a href="#html标签中英翻译" class="headerlink" title="html标签中英翻译"></a>html标签中英翻译</h2><p><a href="https://blog.csdn.net/stepbystepto/article/details/52783654" target="_blank" rel="noopener">https://blog.csdn.net/stepbystepto/article/details/52783654</a></p>
-<h2 id="空元素"><a href="#空元素" class="headerlink" title="空元素"></a>空元素</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/%E7%A9%BA%E5%85%83%E7%B4%A0" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Glossary/%E7%A9%BA%E5%85%83%E7%B4%A0</a></p>
-<h2 id="可以出现在Head标签内的标签"><a href="#可以出现在Head标签内的标签" class="headerlink" title="可以出现在Head标签内的标签"></a>可以出现在Head标签内的标签</h2><p><a href="https://github.com/joshbuchea/HEAD#elements" target="_blank" rel="noopener">https://github.com/joshbuchea/HEAD#elements</a></p>
-<h2 id="关于iframe标签"><a href="#关于iframe标签" class="headerlink" title="关于iframe标签"></a>关于iframe标签</h2><ol>
-<li>iframe 可以拥有一个 name，a 标签的 target 可以通过 name 指向这个 iframe</li>
-<li>现代前端开发中，iframe 很少用</li>
-<li>iframe 用于在当前页面里嵌入一个页面</li>
-</ol>
-<h2 id="body默认marin-8px"><a href="#body默认marin-8px" class="headerlink" title="body默认marin 8px"></a>body默认marin 8px</h2><h2 id="默认display为block的元素"><a href="#默认display为block的元素" class="headerlink" title="默认display为block的元素:"></a>默认display为block的元素:</h2><h2 id="可替换元素"><a href="#可替换元素" class="headerlink" title="可替换元素"></a><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Replaced_element" target="_blank" rel="noopener">可替换元素</a></h2><h2 id="有空做做w3c的html测试题-国内山寨地址"><a href="#有空做做w3c的html测试题-国内山寨地址" class="headerlink" title="有空做做w3c的html测试题,国内山寨地址"></a>有空做做w3c的html<a href="https://www.w3schools.com/quiztest/quiztest.asp?qtest=HTML" target="_blank" rel="noopener">测试题</a>,国内山寨<a href="http://www.w3school.com.cn/quiz/quiz.asp?quiz=html" target="_blank" rel="noopener">地址</a></h2><h2 id="HTML常用标签"><a href="#HTML常用标签" class="headerlink" title="HTML常用标签"></a>HTML常用标签</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">标签</th>
-<th style="text-align:left">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">&lt;!–…–&gt;</td>
-<td style="text-align:left">定义注释</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;!DOCTYPE&gt;</td>
-<td style="text-align:left">定义文档类型</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;a&gt;</td>
-<td style="text-align:left">定义超文本链接</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;abbr&gt;</td>
-<td style="text-align:left">定义缩写</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;acronym&gt;</td>
-<td style="text-align:left">定义只取首字母的缩写，不支持HTML5</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;address&gt;</td>
-<td style="text-align:left">定义文档作者或拥有者的联系信息</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;applet&gt;</td>
-<td style="text-align:left">HTML5中不赞成使用。定义嵌入的 applet。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;area&gt;</td>
-<td style="text-align:left">定义图像映射内部的区域</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;article&gt;</td>
-<td style="text-align:left">定义一个文章区域</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;aside&gt;</td>
-<td style="text-align:left">定义页面的侧边栏内容</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;audio&gt;</td>
-<td style="text-align:left">定义音频内容</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;b&gt;</td>
-<td style="text-align:left">定义文本粗体</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;base&gt;</td>
-<td style="text-align:left">定义页面中所有链接的默认地址或默认目标。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;basefont&gt;</td>
-<td style="text-align:left">HTML5不支持，不赞成使用。定义页面中文本的默认字体、颜色或尺寸。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;bdi&gt;</td>
-<td style="text-align:left">允许您设置一段文本，使其脱离其父元素的文本方向设置。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;bdo&gt;</td>
-<td style="text-align:left">定义文字方向</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;big&gt;</td>
-<td style="text-align:left">定义大号文本，HTML5不支持</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;blockquote&gt;</td>
-<td style="text-align:left">定义长的引用</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;body&gt;</td>
-<td style="text-align:left">定义文档的主体</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;br&gt;</td>
-<td style="text-align:left">定义换行</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;button&gt;</td>
-<td style="text-align:left">定义一个点击按钮</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;canvas&gt;</td>
-<td style="text-align:left">定义图形，比如图表和其他图像,标签只是图形容器，您必须使用脚本来绘制图形</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;caption&gt;</td>
-<td style="text-align:left">定义表格标题</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;center&gt;</td>
-<td style="text-align:left">HTML5不支持，不赞成使用。定义居中文本。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;cite&gt;</td>
-<td style="text-align:left">定义引用(citation)</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;code&gt;</td>
-<td style="text-align:left">定义计算机代码文本</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;col&gt;</td>
-<td style="text-align:left">定义表格中一个或多个列的属性值</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;colgroup&gt;</td>
-<td style="text-align:left">定义表格中供格式化的列组</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;command&gt;</td>
-<td style="text-align:left">定义命令按钮，比如单选按钮、复选框或按钮</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;datalist&gt;</td>
-<td style="text-align:left">定义选项列表。请与 input 元素配合使用该元素，来定义 input 可能的值。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;dd&gt;</td>
-<td style="text-align:left">定义定义列表中项目的描述</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;del&gt;</td>
-<td style="text-align:left">定义被删除文本</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;details&gt;</td>
-<td style="text-align:left">用于描述文档或文档某个部分的细节</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;dfn&gt;</td>
-<td style="text-align:left">定义定义项目</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;dialog&gt;</td>
-<td style="text-align:left">定义对话框，比如提示框</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;dir&gt;</td>
-<td style="text-align:left">HTML5不支持，不赞成使用。定义目录列表。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;div&gt;</td>
-<td style="text-align:left">定义文档中的节</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;dl&gt;</td>
-<td style="text-align:left">定义列表详情</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;dt&gt;</td>
-<td style="text-align:left">定义列表中的项目</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;em&gt;</td>
-<td style="text-align:left">定义强调文本</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;embed&gt;</td>
-<td style="text-align:left">定义嵌入的内容，比如插件。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;fieldset&gt;</td>
-<td style="text-align:left">定义围绕表单中元素的边框</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;figcaption&gt;</td>
-<td style="text-align:left">定义&lt;figure&gt; 元素的标题</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;figure&gt;</td>
-<td style="text-align:left">规定独立的流内容（图像、图表、照片、代码等等）。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;font&gt;</td>
-<td style="text-align:left">HTML5不支持，不赞成使用。定义文字的字体、尺寸和颜色。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;footer&gt;</td>
-<td style="text-align:left">定义 section 或 document 的页脚。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;form&gt;</td>
-<td style="text-align:left">定义了HTML文档的表单</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;frame&gt;</td>
-<td style="text-align:left">定义框架集的窗口或框架</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;frameset&gt;</td>
-<td style="text-align:left">定义框架集</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;h1&gt; to &lt;h6&gt;</td>
-<td style="text-align:left">定义 HTML 标题</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;head&gt;</td>
-<td style="text-align:left">定义关于文档的信息</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;header&gt;</td>
-<td style="text-align:left">定义了文档的头部区域</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;hr&gt;</td>
-<td style="text-align:left">定义水平线</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;html&gt;</td>
-<td style="text-align:left">定义 HTML 文档</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;i&gt;</td>
-<td style="text-align:left">定义斜体字</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;iframe&gt;</td>
-<td style="text-align:left">定义内联框架</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;img&gt;</td>
-<td style="text-align:left">定义图像</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;input&gt;</td>
-<td style="text-align:left">定义输入控件</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;ins&gt;</td>
-<td style="text-align:left">定义被插入文本</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;kbd&gt;</td>
-<td style="text-align:left">定义键盘文本</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;keygen&gt;</td>
-<td style="text-align:left">规定用于表单的密钥对生成器字段。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;label&gt;</td>
-<td style="text-align:left">定义 input 元素的标注</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;legend&gt;</td>
-<td style="text-align:left">定义 fieldset 元素的标题。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;li&gt;</td>
-<td style="text-align:left">定义列表的项目</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;link&gt;</td>
-<td style="text-align:left">定义文档与外部资源的关系</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;map&gt;</td>
-<td style="text-align:left">定义图像映射</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;mark&gt;</td>
-<td style="text-align:left">定义带有记号的文本。请在需要突出显示文本时使用 &lt;m&gt; 标签。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;menu&gt;</td>
-<td style="text-align:left">不赞成使用。定义菜单列表。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;meta&gt;</td>
-<td style="text-align:left">定义关于 HTML 文档的元信息。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;meter&gt;</td>
-<td style="text-align:left">定义度量衡。仅用于已知最大和最小值的度量。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;nav&gt;</td>
-<td style="text-align:left">定义导航链接的部分</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;noframes&gt;</td>
-<td style="text-align:left">定义针对不支持框架的用户的替代内容。HTML5不支持</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;noscript&gt;</td>
-<td style="text-align:left">定义针对不支持客户端脚本的用户的替代内容。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;object&gt;</td>
-<td style="text-align:left">定义内嵌对象</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;ol&gt;</td>
-<td style="text-align:left">定义有序列表。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;optgroup&gt;</td>
-<td style="text-align:left">定义选择列表中相关选项的组合。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;option&gt;</td>
-<td style="text-align:left">定义选择列表中的选项。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;output&gt;</td>
-<td style="text-align:left">定义不同类型的输出，比如脚本的输出。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;p&gt;</td>
-<td style="text-align:left">定义段落。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;param&gt;</td>
-<td style="text-align:left">定义对象的参数。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;pre&gt;</td>
-<td style="text-align:left">定义预格式文本。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;progress&gt;</td>
-<td style="text-align:left">定义运行中的进度（进程）。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;q&gt;</td>
-<td style="text-align:left">定义短的引用。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;rp&gt;</td>
-<td style="text-align:left">&lt;rp&gt; 标签在 ruby 注释中使用，以定义不支持 ruby 元素的浏览器所显示的内容。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;rt&gt;</td>
-<td style="text-align:left">&lt;rt&gt; 标签定义字符（中文注音或字符）的解释或发音。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;ruby&gt;</td>
-<td style="text-align:left">&lt;ruby&gt; 标签定义 ruby 注释（中文注音或字符）。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;s&gt;</td>
-<td style="text-align:left">不赞成使用。定义加删除线的文本。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;samp&gt;</td>
-<td style="text-align:left">定义计算机代码样本。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;script&gt;</td>
-<td style="text-align:left">定义客户端脚本。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;section&gt;</td>
-<td style="text-align:left">&lt;section&gt; 标签定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;select&gt;</td>
-<td style="text-align:left">定义选择列表（下拉列表）。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;small&gt;</td>
-<td style="text-align:left">定义小号文本。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;source&gt;</td>
-<td style="text-align:left">&lt;source&gt; 标签为媒介元素（比如 &lt;video&gt; 和 &lt;audio&gt;）定义媒介资源。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;span&gt;</td>
-<td style="text-align:left">定义文档中的节。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;strike&gt;</td>
-<td style="text-align:left">HTML5不支持，不赞成使用。定义加删除线文本。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;strong&gt;</td>
-<td style="text-align:left">定义强调文本。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;style&gt;</td>
-<td style="text-align:left">定义文档的样式信息。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;sub&gt;</td>
-<td style="text-align:left">定义下标文本。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;summary&gt;</td>
-<td style="text-align:left">&lt;summary&gt; 标签包含 details 元素的标题，”details” 元素用于描述有关文档或文档片段的详细信息。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;sup&gt;</td>
-<td style="text-align:left">定义上标文本。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;table&gt;</td>
-<td style="text-align:left">定义表格。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;tbody&gt;</td>
-<td style="text-align:left">定义表格中的主体内容。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;td&gt;</td>
-<td style="text-align:left">定义表格中的单元。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;textarea&gt;</td>
-<td style="text-align:left">定义多行的文本输入控件。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;tfoot&gt;</td>
-<td style="text-align:left">定义表格中的表注内容（脚注）。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;th&gt;</td>
-<td style="text-align:left">定义表格中的表头单元格。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;thead&gt;</td>
-<td style="text-align:left">定义表格中的表头内容。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;time&gt;</td>
-<td style="text-align:left">定义日期或时间，或者两者。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;title&gt;</td>
-<td style="text-align:left">定义文档的标题。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;tr&gt;</td>
-<td style="text-align:left">定义表格中的行。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;track&gt;</td>
-<td style="text-align:left">&lt;track&gt; 标签为诸如 video 元素之类的媒介规定外部文本轨道。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;tt&gt;</td>
-<td style="text-align:left">定义打字机文本。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;u&gt;</td>
-<td style="text-align:left">不赞成使用。定义下划线文本。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;ul&gt;</td>
-<td style="text-align:left">定义无序列表。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;var&gt;</td>
-<td style="text-align:left">定义文本的变量部分。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;video&gt;</td>
-<td style="text-align:left">&lt;video&gt; 标签定义视频，比如电影片段或其他视频流。</td>
-</tr>
-<tr>
-<td style="text-align:left">&lt;wbr&gt;</td>
-<td style="text-align:left">规定在文本中的何处适合添加换行符。</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://yuenwork.github.io/2018/05/17/HTML/" data-id="cjijwiq5i0001k0vf6oy57z3p" class="article-share-link">Share</a>
+      <a data-url="https://yuenwork.github.io/2018/05/18/html标签/" data-id="cjju3q680000h5ovfysio0es4" class="article-share-link">Share</a>
       
       
     </footer>
