@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>随身git服务器 | firyuen&#39;Blog</title>
+  <title>nodejs部分文件操作相关命令 | firyuen&#39;Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="先占个坑,慢慢写">
+  <meta name="description" content="按照课程安排，写几个Git基础命令。 获取当前文件目录1process.cwd() 进入指定目录1process.chdir() 创建文件夹12var fs = require(&apos;fs&apos;);fs.mkdirSync(&apos;./aaa&apos;); 创建文件12var fs = require(&apos;fs&apos;);fs.writeFileSync(&apos;./aaa/hello&apos;,&apos;hello world!&apos;);">
 <meta property="og:type" content="article">
-<meta property="og:title" content="随身git服务器">
-<meta property="og:url" content="https://firyuen.github.io/2018/05/22/随身git服务器/index.html">
+<meta property="og:title" content="nodejs部分文件操作相关命令">
+<meta property="og:url" content="https://firyuen.github.io/2018/11/10/nodejs部分文件操作命令/index.html">
 <meta property="og:site_name" content="firyuen&#39;Blog">
-<meta property="og:description" content="先占个坑,慢慢写">
+<meta property="og:description" content="按照课程安排，写几个Git基础命令。 获取当前文件目录1process.cwd() 进入指定目录1process.chdir() 创建文件夹12var fs = require(&apos;fs&apos;);fs.mkdirSync(&apos;./aaa&apos;); 创建文件12var fs = require(&apos;fs&apos;);fs.writeFileSync(&apos;./aaa/hello&apos;,&apos;hello world!&apos;);">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-22T14:38:19.999Z">
+<meta property="og:updated_time" content="2018-05-13T14:21:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="随身git服务器">
-<meta name="twitter:description" content="先占个坑,慢慢写">
+<meta name="twitter:title" content="nodejs部分文件操作相关命令">
+<meta name="twitter:description" content="按照课程安排，写几个Git基础命令。 获取当前文件目录1process.cwd() 进入指定目录1process.chdir() 创建文件夹12var fs = require(&apos;fs&apos;);fs.mkdirSync(&apos;./aaa&apos;); 创建文件12var fs = require(&apos;fs&apos;);fs.writeFileSync(&apos;./aaa/hello&apos;,&apos;hello world!&apos;);">
   
   
     <link rel="icon" href="/favicon.png">
@@ -151,10 +151,10 @@
   
 </aside>
         
-        <section id="main"><article id="post-随身git服务器" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-nodejs部分文件操作命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/05/22/随身git服务器/" class="article-date">
-  <time datetime="2018-05-21T17:21:12.000Z" itemprop="datePublished">2018-05-22</time>
+    <a href="/2018/11/10/nodejs部分文件操作命令/" class="article-date">
+  <time datetime="2018-11-10T04:05:55.960Z" itemprop="datePublished">2018-11-10</time>
 </a>
     
   </div>
@@ -165,7 +165,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      随身git服务器
+      nodejs部分文件操作相关命令
     </h1>
   
 
@@ -173,12 +173,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>先占个坑,慢慢写</p>
-
+        <p>按照课程安排，写几个Git基础命令。</p>
+<h3 id="获取当前文件目录"><a href="#获取当前文件目录" class="headerlink" title="获取当前文件目录"></a>获取当前文件目录</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.cwd()</span><br></pre></td></tr></table></figure>
+<h3 id="进入指定目录"><a href="#进入指定目录" class="headerlink" title="进入指定目录"></a>进入指定目录</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.chdir()</span><br></pre></td></tr></table></figure>
+<h2 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.mkdirSync(<span class="string">'./aaa'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.writeFileSync(<span class="string">'./aaa/hello'</span>,<span class="string">'hello world!'</span>);</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/05/22/随身git服务器/" data-id="cjob4al6i000gegvzsxu6o1df" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/11/10/nodejs部分文件操作命令/" data-id="cjob4al6d000eegvzcldywoqj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -187,19 +190,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/05/28/css布局总结/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/11/10/JavaScript中call-apply-bind-用法的理解/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          css布局总结
+          JavaScript中call(),apply(),bind()用法的理解
         
       </div>
     </a>
   
   
-    <a href="/2018/05/21/css学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/11/10/Linux基础/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">css学习笔记</div>
+      <div class="article-nav-title">Linux基础</div>
     </a>
   
 </nav>

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="firyuen&#39;Blog">
-<meta property="og:url" content="https://firyuen.github.io//page/2/index.html">
+<meta property="og:url" content="https://firyuen.github.io/page/2/index.html">
 <meta property="og:site_name" content="firyuen&#39;Blog">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -76,7 +76,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">14</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -88,23 +88,23 @@
       <ul>
         
           <li>
-            <a href="/2018/07/22/jQuery/">jQuery不过如此</a>
+            <a href="/2018/11/10/JavaScript中call-apply-bind-用法的理解/">JavaScript中call(),apply(),bind()用法的理解</a>
           </li>
         
           <li>
-            <a href="/2018/06/18/js里的对象/">js里的对象</a>
+            <a href="/2018/11/10/nodejs部分文件操作命令/">nodejs部分文件操作相关命令</a>
           </li>
         
           <li>
-            <a href="/2018/06/18/JS里的类型/">JS里的类型</a>
+            <a href="/2018/11/10/Linux基础/">Linux基础</a>
           </li>
         
           <li>
-            <a href="/2018/06/13/JavaScript的数据类型/">JavaScript的数据类型</a>
+            <a href="/2018/11/10/hello-world/">Hello World</a>
           </li>
         
           <li>
-            <a href="/2018/05/28/css布局总结/">css布局总结</a>
+            <a href="/2018/11/10/Git基础/">Git基础</a>
           </li>
         
       </ul>
@@ -148,6 +148,439 @@
 </aside>
         
         <section id="main">
+  
+    <article id="post-随身git服务器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/22/随身git服务器/" class="article-date">
+  <time datetime="2018-05-21T17:21:12.000Z" itemprop="datePublished">2018-05-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/22/随身git服务器/">随身git服务器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>先占个坑,慢慢写</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://firyuen.github.io/2018/05/22/随身git服务器/" data-id="cjob4al6i000gegvzsxu6o1df" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-css学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/21/css学习笔记/" class="article-date">
+  <time datetime="2018-05-21T15:42:38.000Z" itemprop="datePublished">2018-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/21/css学习笔记/">css学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>一个元素的高度是由内容决定的，不要给他设定确定的高度。div高度由其内部文档流元素的高度总和决定，并不是相等，只是决定。</li>
+<li>文档内元素的流动方向叫文档流</li>
+<li>内联元素从左往右流，如果遇到宽度不够的阻碍，再另起一行继续流，如果是块级元素，每个块占一行，从上往下一直流。</li>
+<li>添加border是很方便的调试方法。</li>
+<li><p>如果内联元素是个很长的单词，默认情况下是不能分开的。如果要打破需要添加<code>word-break</code>属性。</p>
+</li>
+<li><p><code>word-break</code>属性取值举例<code>break -all</code> 、<code>break-word</code></p>
+</li>
+</ul>
+<ul>
+<li><p>内联元素的高度（难点）</p>
+<ul>
+<li><p>文字的居中不是让文字的中线居中对齐，而是让基线对齐。</p>
+<p>上图对齐蓝色的小a才是正确的。</p>
+<p>上面中间的箭头就是基线、上下分别是上下线，中间的虚线叫中线。</p>
+</li>
+<li><p>每种字体的浏览器默认建议行高不一样。具体情况是由设计师给的字体<code>font-size</code>大小然后在不同的字体情况下有不同的建议行高。</p>
+</li>
+<li><p>多个span在一起的时候，这一行的高度则由最高的span决定。</p>
+</li>
+<li><p>内联元素的高度基本是不可测的，在font-size比较小的时候可以用<code>line-height</code>来控制内联元素所占的高度，如果想要一个特定的高度，可以再在基础上添加padding来增加。</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">         <span class="attribute">border</span>: <span class="number">1px</span> solid green;</span><br><span class="line">         <span class="attribute">line-height</span>:<span class="number">24px</span>;</span><br><span class="line">         <span class="attribute">padding</span>:<span class="number">6px</span> <span class="number">0px</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">/**上面最后div的高度近似于40px**/</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>脱离文档流:一旦脱离文档流，那么父元素的高度则不受该文档控制，父元素会自动忽略他。</p>
+<ul>
+<li><code>position fixed</code>相对于屏幕</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.topNavBar</span>&#123;</span><br><span class="line">           <span class="attribute">position</span>: fixed;</span><br><span class="line">           <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">           <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">/**相对于屏幕左上角固定**/</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
+<p> 如果是fix定位，元素的宽度不会拓展，会往内缩，这时候一般设置<code>width:100%</code>但是给当前div设置100%因为它本身有一个padding宽度，再加上width:100%会超过其父元素，可以通过给要设置的div里面再添加一个div然后给这个新增的div增加padding。<br><br></p>
+<ul>
+<li><p>绝对定位，在子元素写position:absolute;在父元素写position:relative;</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">          <span class="attribute">position</span>: absolute;</span><br><span class="line">          <span class="attribute">left</span>: <span class="number">4px</span>;</span><br><span class="line">          <span class="attribute">top</span>: <span class="number">100%</span>; <span class="comment">/**离父元素100%的距离，从左往右4px的距离。**/</span></span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置<code>display:inline block;</code>后，外边距<code>margin</code>不会合并。</p>
+</li>
+<li><p>随便加<code>padding</code>，不行就加<code>margin</code></p>
+</li>
+<li><p>做半透层背景：<code>background-color: rgba(0,255,0,0.8)</code>;/<strong>不要颜色（黑色），半透层背景</strong>/</p>
+</li>
+<li><p>背景图片居中：<code>background-position: center center;</code></p>
+</li>
+<li><p>背景图片按比例缩放：<code>background-size: cover;</code></p>
+</li>
+<li><p>不要设定固定的宽度，可以设置最大宽度,如果屏幕比最大宽度小可以自适应:<code>max-width:940px;</code></p>
+</li>
+<li><p>div设置水平居中</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">margin-left</span><span class="selector-pseudo">:auto</span>;</span><br><span class="line"><span class="selector-tag">margin-right</span><span class="selector-pseudo">:auto</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>span等内联元素不接受宽高，设置也没用，必须设置<code>display:inline-block;</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.userCard</span> <span class="selector-class">.welcome</span>&#123;</span><br><span class="line">      <span class="attribute">background</span>: <span class="number">#E6686A</span>;</span><br><span class="line">      <span class="attribute">color</span>: white;</span><br><span class="line">      <span class="attribute">display</span>: inline-block;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">70px</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">29px</span>;</span><br><span class="line">      <span class="attribute">line-height</span>: <span class="number">29px</span>;</span><br><span class="line">      <span class="attribute">text-align</span>: center;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**上面的做法一般是新手做法，虽然一般情况下（line-height不高的情况下）设置line-height与height高度相等会居中，但是实际line-height会与设定的值不一样，而且会产生bug**/</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上面的代码块的效果可以通过下面方法完成，从内像外做,先测原效果宽高为70 30 现有宽高是40 20，宽度现在差30左右给15pxpaading，高度差10上下给5pxpadding。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.userCard</span> <span class="selector-class">.welcome</span>&#123;</span><br><span class="line">        <span class="attribute">background-color</span>: <span class="number">#E6686A</span>;</span><br><span class="line">        <span class="attribute">color</span>: white;</span><br><span class="line">        <span class="attribute">display</span>: inline-block;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">5px</span> <span class="number">15px</span>;</span><br><span class="line">          <span class="attribute">line-height</span>: <span class="number">20px</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &lt;!<span class="selector-tag">--</span> <span class="comment">/**这种效果比上面还具有一种优势，无论span里面的内容(welcom)增加或减少，居中都不会变。**/</span></span><br><span class="line">    <span class="comment">/**需要注意的事最后还要添加line-height:20px;尽管现在在机器上是20px了，但是有些机器可能会变动，添加line-height之后可以明确表明20px+2*5px=30px**/</span>  <span class="selector-tag">--</span>&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这两块CSS的HTML代码为<code>&lt;span class=&quot;welcome&quot;&gt;Hello&lt;/span&gt;</code></p>
+<ul>
+<li><p>用CSS画一个三角形 推荐网站：<a href="https://css-tricks.com/examples/ShapesOfCSS/" title="null" target="_blank" rel="noopener">https://css-tricks.com/examples/ShapesOfCSS/</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">      <span class="attribute">border</span>: <span class="number">100px</span> solid transparent;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">0px</span>;</span><br><span class="line">      <span class="attribute">border-left-color</span>: <span class="number">#E6686A</span>;</span><br><span class="line">      <span class="attribute">border-top-width</span>: <span class="number">0px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**可以先画出一个10px solid red的border 给div宽高设为10X10，然后设置四边border颜色慢慢演化，忘了就自己再做一遍。**/</span></span><br><span class="line">    <span class="comment">/* transparent 透明是个好属性。 */</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>span里面设置<code>display:block;</code>就相当于div</p>
+</li>
+<li>float元素默认会收缩</li>
+<li><p>hr线</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">hr</span>&#123;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">border</span>:none;</span><br><span class="line">        <span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="number">#DEDEDE</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.userCard</span> <span class="selector-class">.text</span> <span class="selector-tag">hr</span>&#123;</span><br><span class="line">        <span class="attribute">margin</span>: <span class="number">20px</span> <span class="number">0px</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>dl浮动套路</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.userCard</span> <span class="selector-tag">dl</span> <span class="selector-tag">dt</span>,</span><br><span class="line">    <span class="selector-class">.userCard</span> <span class="selector-tag">dl</span> <span class="selector-tag">dd</span>&#123;</span><br><span class="line">        <span class="attribute">float</span>: left;        <span class="comment">/**逗号分隔，表示两个都遵循float浮动**/</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.userCard</span> <span class="selector-tag">dl</span> <span class="selector-tag">dt</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">30%</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.userCard</span> <span class="selector-tag">dl</span> <span class="selector-tag">dd</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">70%</span>;         <span class="comment">/**利用浮动自动换行的特性左边width30%,右边width70%**/</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>svg语法记住三个</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">svg</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">30px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">30px</span>;</span><br><span class="line">        <span class="attribute">fill</span>: white;</span><br><span class="line">        <span class="attribute">vertical-align</span>: top;  <span class="comment">/**缩小下边距**/</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>a标签搭配svg</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span>&#123;</span><br><span class="line">        <span class="attribute">display</span>: inline-block;</span><br><span class="line">        <span class="attribute">border-radius</span>: <span class="number">50%</span>;      <span class="comment">/**圆形**/</span></span><br><span class="line">        <span class="attribute">width</span>: <span class="number">40px</span>;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">5px</span> <span class="number">0</span>;          <span class="comment">/**不要设置高度，容易出bug**/</span></span><br><span class="line">        <span class="attribute">line-height</span>: <span class="number">30px</span>;</span><br><span class="line">        <span class="attribute">margin</span>: <span class="number">16px</span> <span class="number">16px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**习惯加border调试**/</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://firyuen.github.io/2018/05/21/css学习笔记/" data-id="cjob4al640009egvzt7ie55oa" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-css2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/19/css2/" class="article-date">
+  <time datetime="2018-05-19T15:21:40.000Z" itemprop="datePublished">2018-05-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/19/css2/">CSS-2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>1.文档流<br>  文档流的英文是 Normal Flow,文档流代表元素在文档中的「流动」方向, <code>float:left</code>、<code>position:fixed</code>、<code>position:absolute</code> 都能使元素脱离文档流</p>
+</li>
+<li><p>2.浏览器会给<code>&lt;body&gt;</code>加默认样式<br>  感觉最好这么搞:</p>
+  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3.高度是由什么决定的</p>
+<ol>
+<li>内联元素<br><code>line-height</code><br>给<code>内联元素</code> 元素设置宽高是无效的,给<code>内联元素</code>元素设置 margin-top margin-top 是无效的</li>
+<li>块级元素<br>块级元素的高度由其内部文档流元素的高度总和组成<br><code>&lt;div&gt;</code>如果有boder在流动过程中被截断,则只会显示一半,单词太长会直接被换行<code>word-break:break-all</code>可以解决这个问题</li>
+</ol>
+</li>
+<li><p>4.position 的 5 个取值<br>  A. sticky<br>  B. absolute<br>  C. fixed<br>  D. relative<br>  E. static</p>
+</li>
+<li><p>5.字体默认的 line height 由字体设计师决定</p>
+</li>
+<li><p>6.子元素会继承父元素样式</p>
+</li>
+<li><p>7.<code>content-box</code> 与 <code>border-box</code> 的区别是 <code>border-box</code> 的 <code>width</code> 包括 <code>padding</code> 和 <code>border</code></p>
+</li>
+<li><ol start="8">
+<li>CSS 盒模型Block box与Line box<br><code>display ： block</code> 、 <code>list-item</code> 以及 <code>table</code> 会让一个元素成为块级元素。<br>正常流中，块级元素框的水平部分 = 其父元素的width = margin-left+margin-right + padding-left+padding-right+ border-left+border-right+自身width</li>
+</ol>
+</li>
+<li>Line Box</li>
+</ul>
+<p>每一行称为一条Line Box，它又是由这一行的许多inline-box组成，它的高度可以直接由line-height决定，line boxes的高度垂直堆叠形成了containing box的高度，就是我们见到的div或是p标签之类的高度了。</p>
+<h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><h3 id="匿名文本"><a href="#匿名文本" class="headerlink" title="匿名文本"></a>匿名文本</h3><p><code><div>当你只有一把锤子<span>一切看起来</span>都像是颗钉子</div></code><code>未包含在行内元素的字符串（当你只有一把锤子，都像颗钉子）就叫匿名文本</code> </p>
+<h3 id="内容区-行内框-间距"><a href="#内容区-行内框-间距" class="headerlink" title="内容区 行内框 间距"></a>内容区 行内框 间距</h3><p><img src="https://segmentfault.com/img/bVvMvz" alt="clipboard.png" title="clipboard.png"></p>
+<p>###内容区<br>css假设每个元素都会生成一个或者多个Box，称为元素框，元素框中心有内容区，内容区外周围包括了padding，border，margin，但是，替换元素是包括外边距，内边距，边框的。</p>
+<p>###行间距<br>行间距是font-size与line-height的差值，被分成两半在内容区的上下</p>
+<p>###行内框<br>非替换元素，行内框高度=line-height<br>替换元素，行内框高度=内容区宽度（行间距不应用到替换元素）</p>
+<p>###行高<br>两行文字基线的距离</p>
+<p>###行框<br>一行有很多行内框，行框是包含这一行行内框最高点和最低点的</p>
+<p>###基线<br>不同元素的基线位置不同，整个行框会有一个基线，行内元素的位置是基于两者基线对齐</p>
+<h3 id="vertical-align-垂直对齐"><a href="#vertical-align-垂直对齐" class="headerlink" title="vertical-align(垂直对齐)"></a>vertical-align(垂直对齐)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">该属性 定义 行内元素的基线相对于该元素所在行的基线的垂直对齐的方式。</span><br><span class="line">只有一个元素属于inline或是inline-block（table-cell也可以理解为inline-block水平）水平，其身上的vertical-align属性才会起作用.</span><br><span class="line">同时也可以知道，改变其，会影响到行内框的位置，从而会影响到一整行行内元素的位置</span><br></pre></td></tr></table></figure>
+<p>需要注意vertical-align为数值时，会让文字上下移动，当其为百分比时是针对font-size的百分比</p>
+<h3 id="line-height（行高）"><a href="#line-height（行高）" class="headerlink" title="line-height（行高）"></a>line-height（行高）</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width:100px;height:10px"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">//这个div调整line-height不会发生变化，因为里面没有文字</span><br><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"line-height:10px;border：1px solid green"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span> </span><br><span class="line">//span的高度会随着line-height的变化而变化</span><br><span class="line">//说明行内元素的高度是由line-height的支撑决定，行内框的高度也等于line-height<span class="tag">&lt;/<span class="name">code</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="管理line-height"><a href="#管理line-height" class="headerlink" title="管理line-height"></a>管理line-height</h3><p>因为line-height是根据自己font-size设置，而不是父元素，所以将line-height设置为1em,该元素的line-height则会与相同（em单位是一般是相对与父元素进行设置大小）<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"font-size:12px;line-height:12px"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"font-size:15px;line-height:1em"</span>&gt;</span></span><br><span class="line">        嘿嘿嘿，这里的line-height值为15px</span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="margin-padding-border对行高的影响"><a href="#margin-padding-border对行高的影响" class="headerlink" title="margin padding border对行高的影响"></a>margin padding border对行高的影响</h3><ul>
+<li>行内元素其padding、margin、border-top、border-bottom 不会增加行高。<br>padding会覆盖；margin将重置为0；border-top和border-bottom同样会覆盖。</li>
+</ul>
+<p><img src="https://segmentfault.com/img/bVvMHG" alt="clipboard.png" title="clipboard.png"></p>
+<ul>
+<li><p>css2.1规定margin-top和margin-bottom可以运用到不是行内非替换元素的所有其他元素</p>
+</li>
+<li><p>行内替换元素（如：img）元素会影响行高</p>
+</li>
+</ul>
+<h3 id="inline-block"><a href="#inline-block" class="headerlink" title="inline-block"></a>inline-block</h3><p>将对象呈现为inline对象，但是对象的内容作为block对象呈现。之后的内联对象会被排列在同一行内。<br>比如我们可以给一个link（a元素）inline-block属性值，使其既具有block的宽度高度特性又具有inline的同行特性。</p>
+<p><br></p>
+<p><hr></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://www.cnblogs.com/rainman/archive/2011/08/05/2128068.html" target="_blank" rel="noopener">《CSS 权威指南 第三版》</a><br><a href="http://www.w3cplus.com/css/the-definitive-guide-to-using-negative-margins.html" target="_blank" rel="noopener">《The Definitive Guide to Using Negative Margins》</a><br><a href="http://www.jianshu.com/p/549aaa5fabaa" target="_blank" rel="noopener">margin为负值产生的影响和常见布局应用</a><br><a href="http://www.cnblogs.com/imwtr/p/4441741.html" target="_blank" rel="noopener">CSS布局 – 圣杯布局 &amp; 双飞翼布局</a><br><a href="http://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height/" target="_blank" rel="noopener">CSS深入理解vertical-align和line-height的基友关系</a><br><a href="http://www.cnblogs.com/rainman/archive/2011/08/05/2128068.html" target="_blank" rel="noopener">深入理解CSS中的行高</a><br><a href="https://segmentfault.com/a/1190000005155084" target="_blank" rel="noopener">想要清晰的明白（二）CSS 盒模型Block box与Line box</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://firyuen.github.io/2018/05/19/css2/" data-id="cjob4al5z0005egvzqddijzy4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-css1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/19/css1/" class="article-date">
+  <time datetime="2018-05-19T06:28:07.000Z" itemprop="datePublished">2018-05-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/19/css1/">CSS-1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="CSS-的历史"><a href="#CSS-的历史" class="headerlink" title="CSS 的历史"></a>CSS 的历史</h2><p><a href="https://zh.wikipedia.org/wiki/%E5%B1%82%E5%8F%A0%E6%A0%B7%E5%BC%8F%E8%A1%A8#.E5.8E.86.E5.8F.B2" title="null" target="_blank" rel="noopener">中文维基百科</a><br><a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets#History" title="null" target="_blank" rel="noopener">英文维基百科</a></p>
+<p>注意中文维基百科严重落后了。</p>
+<ol>
+<li>两个人合作发明了 CSS<br>1994年哈肯·维姆·莱提出了CSS的最初建议。伯特·波斯（Bert Bos）当时正在设计一个叫做“Argo”的浏览器，他们决定一起合作设计CSS。</li>
+<li>W3C 开始接管 CSS<br>1997年初，W3C内组织了专门管CSS的工作组，其负责人是克里斯·里雷。</li>
+<li>CSS 2.1<br>1998年5月W3C发表了CSS2<br>CSS2.1修改了CSS2中的一些错误，删除了其中基本不被支持的内容和增加了一些已有的浏览器的扩展内容。</li>
+<li>CSS 3<br>从 2011 年开始 CSS 被分为多个模块单独升级，统称为 CSS 3。这些模块有：<ul>
+<li>CSS 选择器 level 3</li>
+<li>CSS 媒体查询 level 3</li>
+<li>CSS Color level 3</li>
+<li>更多请 <a href="https://www.google.com/search?q=css+spec&amp;oq=css+spec&amp;aqs=chrome..69i57j69i60l5.1235j0j7&amp;sourceid=chrome&amp;ie=UTF-8" title="null" target="_blank" rel="noopener">搜索 CSS spec</a></li>
+</ul>
+</li>
+<li>CSS 4?<br>不好意思，没有 CSS 4，只有各个模块的 level 4</li>
+</ol>
+<p>周边工具</p>
+<ul>
+<li>LESS CSS<br>一种简化、功能更多的 CSS 语言 <a href="https://www.google.com/search?q=less+css+%E4%B8%AD%E6%96%87" title="null" target="_blank" rel="noopener">中文官网</a> <a href="https://www.google.com/search?q=less+css" title="null" target="_blank" rel="noopener">英文官网</a></li>
+<li>SASS<br>一种简化、功能更多的 CSS 语言（请自行搜索中英文官网）</li>
+<li>PostCSS<br>一种 CSS 处理程序</li>
+</ul>
+<p>我的建议是，先不要看周边工具，学好最朴素的 CSS，然后升级就很容易了。</p>
+<h2 id="CSS-学习资源"><a href="#CSS-学习资源" class="headerlink" title="CSS 学习资源"></a>CSS 学习资源</h2><ol>
+<li>Google: 关键词 MDN</li>
+<li><a href="https://css-tricks.com/" title="null" target="_blank" rel="noopener">CSS Tricks</a></li>
+<li><a href="https://www.google.com/search?q=%E9%98%AE%E4%B8%80%E5%B3%B0+css" title="null" target="_blank" rel="noopener">Google: 阮一峰 css</a></li>
+<li><a href="http://www.zhangxinxu.com/wordpress/category/css/page/25/" title="null" target="_blank" rel="noopener">张鑫旭的 240 多篇 CSS 博客</a></li>
+<li><a href="https://tympanus.net/codrops/category/playground/" title="null" target="_blank" rel="noopener">Codrops 炫酷 CSS 效果</a></li>
+<li><a href="http://www.ituring.com.cn/book/1695" title="null" target="_blank" rel="noopener">CSS揭秘</a></li>
+<li><a href="http://cndevdocs.com/" title="null" target="_blank" rel="noopener">CSS 2.1 中文 spec</a></li>
+<li><a href="http://adamschwartz.co/magic-of-css/" title="null" target="_blank" rel="noopener">Magic of CSS</a> 免费在线书</li>
+</ol>
+<p>我的建议是：中文学习资源只看大 V 的（毕竟他们要维护形象不能瞎写），英文资源看 CSS Tricks、MDN 和 Codrops。书的话作用不大，最权威的书其实是文档。</p>
+<ul>
+<li>如果你想快速上手，就先写小 demo 再学理论。</li>
+<li>如果你想一鸣惊人，就仔细看 CSS 规范文档。</li>
+</ul>
+<h2 id="开始写-CSS"><a href="#开始写-CSS" class="headerlink" title="开始写 CSS"></a>开始写 CSS</h2><ol>
+<li>引入 CSS 的三/四种方式</li>
+<li>从最小的东西开始入手</li>
+<li>逐渐变大</li>
+<li>学会组织 CSS（以后再说）</li>
+<li>自己写 CSS UI 库</li>
+</ol>
+<pre><code>## CSS 代码
+
+## 知识点
+
+1.  如何做横向布局（float + clearfix）
+2.  如何取色、量尺寸、预览字体（Word）
+3.  如何使用开发者工具查看样式、继承样式
+4.  四种引入 CSS 的方式：style 属性、style 标签、css link、css import
+5.  常见 CSS 属性：
+    1.  font-family font-size font-weight
+    2.  ul、body 的默认 margin 和 padding
+    3.  color、background-color、margin、padding
+    4.  line-height
+</code></pre><h2 id="CSS-全称是什么"><a href="#CSS-全称是什么" class="headerlink" title="CSS 全称是什么"></a>CSS 全称是什么</h2><ul>
+<li>Cascading Style Sheets   </li>
+</ul>
+<h2 id="不会-CSS-里面的-transform-属性，最应该搜什么关键词？"><a href="#不会-CSS-里面的-transform-属性，最应该搜什么关键词？" class="headerlink" title="不会 CSS 里面的 transform 属性，最应该搜什么关键词？"></a>不会 CSS 里面的 transform 属性，最应该搜什么关键词？</h2><ul>
+<li>CSS transform MDN</li>
+</ul>
+<h2 id="CSS-里，为什么-color-red-可以让文字变红色？"><a href="#CSS-里，为什么-color-red-可以让文字变红色？" class="headerlink" title="CSS 里，为什么 color: red 可以让文字变红色？"></a>CSS 里，为什么 color: red 可以让文字变红色？</h2><ul>
+<li>因为浏览器看到 color: red 就会将对应的文字变红</li>
+<li>具体原理要看浏览器代码，但是目前我看不懂浏览器代码</li>
+<li>CSS 是一种声明式语言，只需要写出对应的声明，就会产生对应的效果</li>
+<li>因为 color 表示文字颜色，red 表示红色。</li>
+</ul>
+<h2 id="预期上、下、左、右内边距分别-1px-2px-3px-4px，那么下面写法正确的有："><a href="#预期上、下、左、右内边距分别-1px-2px-3px-4px，那么下面写法正确的有：" class="headerlink" title="预期上、下、左、右内边距分别 1px 2px 3px 4px，那么下面写法正确的有："></a>预期上、下、左、右内边距分别 1px 2px 3px 4px，那么下面写法正确的有：</h2><ul>
+<li>padding-top: 1px; padding-bottom: 2px; padding-left: 3px; padding-right: 4px;</li>
+<li>padding: 1px 4px 2px 3px;</li>
+</ul>
+<h2 id="xxx-text-align-center-的作用是？"><a href="#xxx-text-align-center-的作用是？" class="headerlink" title=".xxx {text-align: center;} 的作用是？"></a>.xxx {text-align: center;} 的作用是？</h2><ul>
+<li>让 .xxx 子代中的内联元素居中</li>
+</ul>
+<h2 id="我需要一个-div-高度为-30px，div-里有一行字垂直居中，字的大小为-14px，应该怎么写-CSS"><a href="#我需要一个-div-高度为-30px，div-里有一行字垂直居中，字的大小为-14px，应该怎么写-CSS" class="headerlink" title="我需要一个 div 高度为 30px，div 里有一行字垂直居中，字的大小为 14px，应该怎么写 CSS?"></a>我需要一个 div 高度为 30px，div 里有一行字垂直居中，字的大小为 14px，应该怎么写 CSS?</h2><ul>
+<li>给 div 的样式为 font-size: 14px; line-height: 20px; padding: 5px 0;</li>
+<li>给 div 的样式为 font-size: 14px; line-height: 24px; padding: 3px 0;</li>
+<li>给 div 的样式为 font-size: 14px; line-height: 30px; //这个比较奇特,设置了行高之后,文字就会自动垂直居中</li>
+</ul>
+<h2 id="方方说用-float-做横向结构需要做哪两件事？"><a href="#方方说用-float-做横向结构需要做哪两件事？" class="headerlink" title="方方说用 float 做横向结构需要做哪两件事？"></a>方方说用 float 做横向结构需要做哪两件事？</h2><ul>
+<li>给所有子元素加 float: left 2. 给父元素加 clearfix 类</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://firyuen.github.io/2018/05/19/css1/" data-id="cjob4al610006egvzl29ptnbw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-html标签" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/18/html标签/" class="article-date">
+  <time datetime="2018-05-18T11:41:12.000Z" itemprop="datePublished">2018-05-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/18/html标签/">html标签</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="lt-iframe-gt-和-lt-a-gt-标签"><a href="#lt-iframe-gt-和-lt-a-gt-标签" class="headerlink" title="&lt;iframe&gt; 和 &lt;a&gt; 标签"></a><code>&lt;iframe&gt;</code> 和 <code>&lt;a&gt;</code> 标签</h2><pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;iframe src=<span class="string">"https://www.baidu.com"</span> name=<span class="string">"xxx"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span><br><span class="line">&lt;a href=<span class="string">""</span> target=<span class="string">"xxx"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">a</span> &gt;</span></span></span><br></pre></td></tr></table></figure>
+
+`&lt;iframe&gt;`元素用于在当前网页嵌套页面,`&lt;iframe&gt;`最好少用了
+`frameborder=0`用来消除默认边框
+
+### `&lt;a&gt;`标签target
+|标签|含义|
+|-|:-:|
+|_blank    |在新窗口中打开被链接文档。|
+|_self    |默认。在相同的框架中打开被链接文档。|
+|_parent    |在父框架集中打开被链接文档。|
+|_top    |在整个窗口中打开被链接文档。|
+
+### `&lt;a&gt;`标签的download属性可以下载
+</code></pre><h2 id="lt-a-gt-的href"><a href="#lt-a-gt-的href" class="headerlink" title="&lt;a&gt;的href"></a><code>&lt;a&gt;</code>的href</h2><pre><code>href后加http://qq.com会打开链接,直接加qq.com则不会
+        加`//`就会用当前的协议打开连接
+        加`#`会到指定锚点 只有锚点是不发请求的,只在当前页面跳转
+        加`?name=xxx`浏览器会自动帮助发起请求
+        加`javascript: alert(111);` 直接执行js代码
+        加`javascript:;` 一个`&lt;a&gt;`连接,点击后什么也不执行 
+        href为空点击则刷新自身
+</code></pre><h2 id="lt-form-gt-一般用来post内容"><a href="#lt-form-gt-一般用来post内容" class="headerlink" title="&lt;form&gt;一般用来post内容"></a><code>&lt;form&gt;</code>一般用来post内容</h2><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"index2.html"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="npm-install-http-server"><a href="#npm-install-http-server" class="headerlink" title="npm install http-server"></a><code>npm install http-server</code></h2><pre><code>alias hs
+http-server -c-1 则不会缓存
+</code></pre><h2 id="input的属性"><a href="#input的属性" class="headerlink" title="input的属性"></a>input的<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input" target="_blank" rel="noopener">属性</a></h2><h2 id="button的属性"><a href="#button的属性" class="headerlink" title="button的属性"></a>button的<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button" target="_blank" rel="noopener">属性</a></h2><pre><code>1. 如果一个`&lt;form&gt;`中只有一个`&lt;button&gt;`,这个button会自动升级为submit,但是如果给button指定type,那么这个表单就没有提交按钮
+2. 如果`&lt;form&gt;`中有一个`&lt;input&gt;`,它的type是submit,也达到submit的效果
+3. 如果需要输入完成后按enter提交,需要submit属性
+</code></pre><h2 id="lt-label-gt-是为了与input结合绑定的-按下-lt-label-gt-标签内容-到输入框"><a href="#lt-label-gt-是为了与input结合绑定的-按下-lt-label-gt-标签内容-到输入框" class="headerlink" title="&lt;label&gt;是为了与input结合绑定的,按下&lt;label&gt;标签内容,到输入框"></a><code>&lt;label&gt;</code>是为了与input结合绑定的,按下<code>&lt;label&gt;</code>标签内容,到输入框</h2><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span> = <span class="string">"username"</span>&gt;</span>用户名<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span> = <span class="string">"text"</span> <span class="attr">name</span> = <span class="string">"username"</span> <span class="attr">id</span> = <span class="string">"username"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span> = <span class="string">"checkbox"</span> <span class="attr">id</span> = <span class="string">"xxx"</span>&gt;</span><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span> = <span class="string">"xxx"</span>&gt;</span>你好<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    //label是为id为xxx准备的,此时按你好也能勾选</span><br><span class="line">    //骚操作,以下也是同样效果</span><br><span class="line">   <span class="tag">&lt;<span class="name">label</span> &gt;</span>用户名<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span> = <span class="string">"text"</span> <span class="attr">name</span> = <span class="string">"username"</span>  <span class="attr">id</span> = <span class="string">"username"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="lt-input-gt-都要加name属性-否则服务器无法读到"><a href="#lt-input-gt-都要加name属性-否则服务器无法读到" class="headerlink" title="&lt;input&gt;都要加name属性,否则服务器无法读到"></a><code>&lt;input&gt;</code>都要加name属性,否则服务器无法读到</h2><pre><code>`checkbox`可以自己指定value,name相同成为同一类,可以勾选多个//多选框
+`radio`可以自己指定value,name相同成为同一类,只能选中一个//单选框
+</code></pre><h2 id="lt-select-gt"><a href="#lt-select-gt" class="headerlink" title="&lt;select&gt;"></a><code>&lt;select&gt;</code></h2><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"group"</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">multiple</span>&gt;</span>//alt键多选</span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>-<span class="tag">&lt;/<span class="name">option</span>&gt;</span> //空组</span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"2"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"3"</span> <span class="attr">disabled</span>&gt;</span>3<span class="tag">&lt;/<span class="name">option</span>&gt;</span> //禁止选中</span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"4"</span> <span class="attr">selected</span>&gt;</span>4<span class="tag">&lt;/<span class="name">option</span>&gt;</span> //默认选中</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="lt-textarea-gt"><a href="#lt-textarea-gt" class="headerlink" title="&lt;textarea&gt;"></a><code>&lt;textarea&gt;</code></h2><pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">style</span>=<span class="string">"resize: none"</span> <span class="attr">name</span>=<span class="string">"hobby"</span> <span class="attr">id</span>=<span class="string">""</span> <span class="attr">cols</span>=<span class="string">"30"</span> <span class="attr">rows</span>=<span class="string">"10"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span> </span><br><span class="line">//cols列 rows行,只能大概控制,具体控制大小用css</span><br><span class="line">//禁止用户改变文本输入区域大小</span><br></pre></td></tr></table></figure>
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://firyuen.github.io/2018/05/18/html标签/" data-id="cjob4al6a000cegvzgltk5jmv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-HTML" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -669,7 +1102,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io//2018/05/17/HTML/" data-id="cjju3yhfx0001covfzx0xh8aw" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/05/17/HTML/" data-id="cjob4al5t0001egvzuwy6dyn4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -747,7 +1180,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io//2018/05/15/http/" data-id="cjju3yhgb000bcovfj51lpiac" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/05/15/http/" data-id="cjob4al68000begvzljd919tz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -821,174 +1254,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io//2018/05/14/Hexo使用方法备注/" data-id="cjju3yhfz0002covf5lcrwgiz" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-nodejs部分文件操作命令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/14/nodejs部分文件操作命令/" class="article-date">
-  <time datetime="2018-05-14T13:10:21.780Z" itemprop="datePublished">2018-05-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/14/nodejs部分文件操作命令/">nodejs部分文件操作相关命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>按照课程安排，写几个Git基础命令。</p>
-<h3 id="获取当前文件目录"><a href="#获取当前文件目录" class="headerlink" title="获取当前文件目录"></a>获取当前文件目录</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.cwd()</span><br></pre></td></tr></table></figure>
-<h3 id="进入指定目录"><a href="#进入指定目录" class="headerlink" title="进入指定目录"></a>进入指定目录</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.chdir()</span><br></pre></td></tr></table></figure>
-<h2 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.mkdirSync(<span class="string">'./aaa'</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">fs.writeFileSync(<span class="string">'./aaa/hello'</span>,<span class="string">'hello world!'</span>);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://firyuen.github.io//2018/05/14/nodejs部分文件操作命令/" data-id="cjju3yhgd000dcovfmyzps8pb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Linux基础" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/14/Linux基础/" class="article-date">
-  <time datetime="2018-05-14T13:10:21.779Z" itemprop="datePublished">2018-05-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/14/Linux基础/">Linux基础</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>按照课程安排，写几个Linux基础命令。</p>
-<h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><h3 id="查看当前目录下的文件"><a href="#查看当前目录下的文件" class="headerlink" title="查看当前目录下的文件"></a>查看当前目录下的文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br><span class="line">Applications    Documents	Library		Music		Public</span><br><span class="line">Desktop		Downloads	Movies		Pictures</span><br></pre></td></tr></table></figure>
-<h3 id="以列表方式查看当前目录下文件"><a href="#以列表方式查看当前目录下文件" class="headerlink" title="以列表方式查看当前目录下文件"></a>以列表方式查看当前目录下文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">$ ls -l</span><br><span class="line">total 0</span><br><span class="line">drwx------@  4 yuanpengfei  staff   128  5 12 12:58 Applications</span><br><span class="line">drwx------+  9 yuanpengfei  staff   288  5 13 17:12 Desktop</span><br><span class="line">drwx------+  8 yuanpengfei  staff   256  5 13 19:57 Documents</span><br><span class="line">drwx------+ 10 yuanpengfei  staff   320  5 13 17:49 Downloads</span><br><span class="line">drwx------@ 61 yuanpengfei  staff  1952  5 13 17:30 Library</span><br><span class="line">drwx------+  3 yuanpengfei  staff    96  5 12 00:25 Movies</span><br><span class="line">drwx------+  4 yuanpengfei  staff   128  5 12 23:05 Music</span><br><span class="line">drwx------+  3 yuanpengfei  staff    96  5 12 00:25 Pictures</span><br><span class="line">drwxr-xr-x+  4 yuanpengfei  staff   128  5 12 00:25 Public</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 显示当前目录下所有文件，包括隐藏文件</span></span><br><span class="line">``` bash</span><br><span class="line">$ ls -a</span><br><span class="line">.			.config			Desktop</span><br><span class="line">..			.gitconfig		Documents</span><br><span class="line">.CFUserTextEncoding	.node_repl_history	Downloads</span><br><span class="line">.DS_Store		.npm			Library</span><br><span class="line">.ShadowsocksX-NG	.oracle_jre_usage	Movies</span><br><span class="line">.Trash			.ssh			Music</span><br><span class="line">.bash_history		.swt			Pictures</span><br><span class="line">.bash_sessions		.vscode			Public</span><br><span class="line">.bashrc			Applications</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">## cat</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 打印文件内容到终端上</span></span><br><span class="line">```bash</span><br><span class="line">$ cat .bashrc</span><br><span class="line"><span class="built_in">alias</span> ll=<span class="string">"ls -l"</span></span><br><span class="line"><span class="built_in">cd</span> ~/Desktop/</span><br></pre></td></tr></table></figure>
-<h2 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h2><h3 id="将文件重命名或者移动到指定目录"><a href="#将文件重命名或者移动到指定目录" class="headerlink" title="将文件重命名或者移动到指定目录"></a>将文件重命名或者移动到指定目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br><span class="line">1.txt</span><br><span class="line">$ mv 1.txt 2.txt</span><br><span class="line">$ ls</span><br><span class="line">2.txt</span><br></pre></td></tr></table></figure>
-<h2 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h2><h3 id="创建一个空白文件"><a href="#创建一个空白文件" class="headerlink" title="创建一个空白文件"></a>创建一个空白文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br><span class="line">1.txt</span><br><span class="line">$ touch 2.txt</span><br><span class="line">$ ls</span><br><span class="line">1.txt 2.txt</span><br></pre></td></tr></table></figure>
-<h2 id="explainshell-com"><a href="#explainshell-com" class="headerlink" title="explainshell.com"></a>explainshell.com</h2><p>输入不认识的命令和后面的参数，explainshell会分辨解析命令的功能是什么，后面跟着的参数是什么，都是英文的，墙内的可以参考这个网站<a href="http://man.linuxde.net" target="_blank" rel="noopener">Linux命令大全</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://firyuen.github.io//2018/05/14/Linux基础/" data-id="cjju3yhg20004covfthdnka60" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/14/hello-world/" class="article-date">
-  <time datetime="2018-05-14T13:10:21.777Z" itemprop="datePublished">2018-05-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/14/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://firyuen.github.io//2018/05/14/hello-world/" data-id="cjju3yhg70008covfs2duqvz7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Git基础" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/14/Git基础/" class="article-date">
-  <time datetime="2018-05-14T13:10:21.776Z" itemprop="datePublished">2018-05-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/14/Git基础/">Git基础</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>按照课程安排，写几个Git基础命令。</p>
-<h2 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h2><h3 id="用-git-init-在目录中创建新的-Git-仓库。-你可以在任何时候、任何目录中这么做，完全是本地化的。在目录中执行-git-init，就可以创建一个-Git-仓库了。"><a href="#用-git-init-在目录中创建新的-Git-仓库。-你可以在任何时候、任何目录中这么做，完全是本地化的。在目录中执行-git-init，就可以创建一个-Git-仓库了。" class="headerlink" title="用 git init 在目录中创建新的 Git 仓库。 你可以在任何时候、任何目录中这么做，完全是本地化的。在目录中执行 git init，就可以创建一个 Git 仓库了。"></a>用 git init 在目录中创建新的 Git 仓库。 你可以在任何时候、任何目录中这么做，完全是本地化的。在目录中执行 git init，就可以创建一个 Git 仓库了。</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir gitlearn</span><br><span class="line">$ <span class="built_in">cd</span> gitlearn/</span><br><span class="line">$ git init</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> /Users/yuanpengfei/gitlearn/.git/</span><br></pre></td></tr></table></figure>
-<h2 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h2><h3 id="git-add-命令可将该文件添加到缓存，如我们添加以下两个文件："><a href="#git-add-命令可将该文件添加到缓存，如我们添加以下两个文件：" class="headerlink" title="git add 命令可将该文件添加到缓存，如我们添加以下两个文件："></a>git add 命令可将该文件添加到缓存，如我们添加以下两个文件：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ touch README</span><br><span class="line">$ touch index.html</span><br><span class="line">$ ls</span><br><span class="line">README        index.php</span><br><span class="line">$ git status -s</span><br><span class="line">?? README</span><br><span class="line">?? index.php</span><br><span class="line">$ git add README index.html</span><br><span class="line">$ git status -s</span><br><span class="line">A README</span><br><span class="line">A index.php</span><br></pre></td></tr></table></figure>
-<h2 id="git-commit-v"><a href="#git-commit-v" class="headerlink" title="git commit -v"></a>git commit -v</h2><h3 id="显示有哪些更改"><a href="#显示有哪些更改" class="headerlink" title="显示有哪些更改"></a>显示有哪些更改</h3><h2 id="关于更多Git命令"><a href="#关于更多Git命令" class="headerlink" title="关于更多Git命令"></a>关于更多Git命令</h2><p>能记得尽量记，不记得的话用的时候查<br><a href="http://www.runoob.com/git/git-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://firyuen.github.io//2018/05/14/Git基础/" data-id="cjju3yhfs0000covf8c170gtp" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/05/14/Hexo使用方法备注/" data-id="cjob4al5w0002egvz2gtmpude" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1025,7 +1291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io//2018/05/13/开博大吉/" data-id="cjju3yhgi000fcovf8vbfmgma" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/05/13/开博大吉/" data-id="cjob4al6j000hegvzo3ft3t2a" class="article-share-link">Share</a>
       
       
     </footer>
