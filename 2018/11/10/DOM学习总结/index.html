@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DOM学习总结 | firyuen&#39;Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="总结 + 我认为的重点 搜索归纳,以掌握 DOM 基本思想  DOM 的作用 === 表示 HTML 文档  DOM提供的 API === 查询,修改 HTML 文档内容  输入document.documentElement来获得 html 节点  只有Node.querySelectorAll()返回的数组不是动态的  scrollHeight返回的是高度  scrollTop返回的是滚动高度">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM学习总结">
+<meta property="og:url" content="https://firyuen.github.io/2018/11/10/DOM学习总结/index.html">
+<meta property="og:site_name" content="firyuen&#39;Blog">
+<meta property="og:description" content="总结 + 我认为的重点 搜索归纳,以掌握 DOM 基本思想  DOM 的作用 === 表示 HTML 文档  DOM提供的 API === 查询,修改 HTML 文档内容  输入document.documentElement来获得 html 节点  只有Node.querySelectorAll()返回的数组不是动态的  scrollHeight返回的是高度  scrollTop返回的是滚动高度">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5529438-1ac257c9d8bc180d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/5529438-9adcec2c1bf89f37.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-11-10T08:00:40.473Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DOM学习总结">
+<meta name="twitter:description" content="总结 + 我认为的重点 搜索归纳,以掌握 DOM 基本思想  DOM 的作用 === 表示 HTML 文档  DOM提供的 API === 查询,修改 HTML 文档内容  输入document.documentElement来获得 html 节点  只有Node.querySelectorAll()返回的数组不是动态的  scrollHeight返回的是高度  scrollTop返回的是滚动高度">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/5529438-1ac257c9d8bc180d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'> -->
+  <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css"> -->
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css">
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <a href="/" class="logo">firyuen&#39;Blog</a>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about/index.html">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://firyuen.github.io"></form>
+        </div>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        
+        
+          <a id="nav-github-link" class="nav-icon" href="https://github.com/ppoffice/hexo-theme-alex" title="Fork me on GitHub"></a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+      <nav id="mobile-nav" class="off">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/index.html" class="mobile-nav-link">About</a>
+  
+  <div id="search-form-wrap-mobile">
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://firyuen.github.io"></form>
+  </div>
+</nav>
+      <div class="outer">
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">10</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/10/DOM学习总结/">DOM学习总结</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/10/JavaScript中call-apply-bind-用法的理解/">JavaScript中call(),apply(),bind()用法的理解</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/10/nodejs部分文件操作命令/">nodejs部分文件操作相关命令</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/10/Linux基础/">Linux基础</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/10/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://hexo.io">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+        <section id="main"><article id="post-DOM学习总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/10/DOM学习总结/" class="article-date">
+  <time datetime="2018-11-10T08:00:12.000Z" itemprop="datePublished">2018-11-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DOM学习总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="总结-我认为的重点"><a href="#总结-我认为的重点" class="headerlink" title="总结 + 我认为的重点"></a>总结 + 我认为的重点</h2><ol>
+<li><p>搜索<code>归纳</code>,以掌握 DOM 基本思想</p>
+</li>
+<li><p>DOM 的作用 === 表示 HTML 文档</p>
+</li>
+<li><p>DOM提供的 API === 查询,修改 HTML 文档内容</p>
+</li>
+<li><p>输入<code>document.documentElement</code>来获得 html 节点</p>
+</li>
+<li><p>只有<code>Node.querySelectorAll()</code>返回的数组不是动态的</p>
+</li>
+<li><p><code>scrollHeight</code>返回的是高度</p>
+</li>
+<li><p><code>scrollTop</code>返回的是滚动高度</p>
+<p>​</p>
+</li>
+</ol>
+<h2 id="对-DOM-的一些理解"><a href="#对-DOM-的一些理解" class="headerlink" title="对 DOM 的一些理解"></a>对 DOM 的一些理解</h2><ol>
+<li><p>DOM === 想象的树型结构模型.</p>
+</li>
+<li><p>DOM提供的API的作用就是修改或者查看 HTML 代码</p>
+</li>
+<li><p>DOM中的O指的是Object,他是在内存中,按照树型结构,通过构造函数(如Node,Element(翻译为标签比较好),Document三个构造函数),构造出对象,将 DOM 展现到内存中</p>
+</li>
+<li><p>DOM的D指的是Document,可以认为是 HTML 文档</p>
+</li>
+<li><p>DOM的M指的是Model,因为在 HTML结构 在内存中不好用笔表示,所以用一个模型来表示,这个模型就是树型结构</p>
+</li>
+<li><p>DOM 树型结构</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5529438-1ac257c9d8bc180d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="未命名文件 (4).png"></p>
+<ol>
+<li><p>上图就是DOM,其中的每个节点(包括矩形节点和椭圆形节点)都是Node类型</p>
+</li>
+<li><p>document节点是Document构造函数的一个实例对象,document节点代表了整个文档(整个树型结构</p>
+<p>,我们可以通过直接输入<code>document</code>来获取document节点</p>
+</li>
+<li><p>html节点是Element构造函数的一个实例对象,html节点又叫根节点</p>
+<p>我们可以通过输入<code>document.documentElement</code>来获得html节点</p>
+</li>
+<li><p>椭圆形的文本节点:”你好,我叫饶家俊”  是Text构造函数的一个实例对象(文本节点是Text构造函数的一个实例对象)</p>
+</li>
+<li><p>Node,Element,Text的关系</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5529438-9adcec2c1bf89f37.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="未命名文件 (5).png"></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="DOM的归纳和总结"><a href="#DOM的归纳和总结" class="headerlink" title="DOM的归纳和总结"></a>DOM的归纳和总结</h2><ol>
+<li><p>JavaScript将 HTML 文档渲染成 DOM 的树型结构.</p>
+</li>
+<li><p>有了树形结构, 第一件事情是什么?当然是获取DOM的节点啦!</p>
+</li>
+<li><p>获得节点的方法: </p>
+<ol>
+<li>直接在DOM寻找: <code>document.querySelector(AAAA)</code>和<code>document.querySelectorAll(AAAA)</code></li>
+<li>通过节点关系获得节点<ol>
+<li>兄弟关系</li>
+<li>儿子关系</li>
+<li>父关系</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>获得节点后,首先你要了解获得的节点是什么吧(比如你要知道节点是什么类型)?</p>
+<p>了解节点:</p>
+<ol>
+<li><code>Node.nodeName</code></li>
+<li><code>Node.nodeType</code></li>
+<li><code>Node.textContent</code></li>
+</ol>
+</li>
+<li><p>既然节点可以对应 HTML 文档的标签,那么我可不可以通过 DOM 来处理标签的属性?搜索<code>处理标签属性</code>知道所有属性的处理方法.</p>
+</li>
+<li><p>我可以通过 DOM 的 API 修改 DOM 的结构吗?</p>
+<ol>
+<li><p>创建节点</p>
+<p><code>document.createElement(&quot;div&quot;)</code>生成Element节点</p>
+<p><code>document.createTextNode(&quot;你好,我叫饶家俊&quot;)</code>生成Text节点</p>
+</li>
+<li><p>通过Node方法将创建的节点拼接到 DOM 中,搜索<code>Node方法</code></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="Node类型的一些属性和方法"><a href="#Node类型的一些属性和方法" class="headerlink" title="Node类型的一些属性和方法"></a>Node类型的一些属性和方法</h2><h3 id="Node属性"><a href="#Node属性" class="headerlink" title="Node属性"></a>Node属性</h3><ol>
+<li><strong>节点本身某些特征</strong>的属性:<ul>
+<li><code>Node.nodeName</code>:<ul>
+<li>看着DOM,如果你不确定某个Node节点是什么类型(不确定某个Node节点是矩形还是椭圆形)<ul>
+<li>返回节点类型,重要的返回的值有<code>大写的HTML元素名</code>, <code>#text</code> ,<code>#document</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>Node.nodeType</code>:<ul>
+<li>根据Node类型返回某些数字</li>
+<li>Element类型,返回的数字是1</li>
+<li>Text类型,返回的数字是3</li>
+<li>Document类型,返回的数字的9</li>
+</ul>
+</li>
+<li><code>Node.textContent</code><ul>
+<li>返回的当前节点及其所有后代的文本内容</li>
+<li>值得注意的是,因为<code>Node.textContent</code>是Node属性,所以文本节点也是有textContent的</li>
+<li><code>innerHTML</code>和<code>innerText</code>是Element的属性,所以<code>TextNode.innerHTML</code>返回的是undefined,注意,并不是返回null</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>节点<strong>结构关系</strong>属性<ul>
+<li>兄弟关系<ul>
+<li><code>Node.nextSibling</code></li>
+<li><code>Node.previousSibling</code></li>
+</ul>
+</li>
+<li>儿子关系<ul>
+<li><code>Node.childNodes</code></li>
+<li><code>Node.firstChild</code></li>
+<li><code>Node.lastChild</code></li>
+</ul>
+</li>
+<li>父关系<ul>
+<li><code>Node.parentNode</code></li>
+</ul>
+</li>
+<li>上面的所有关系属性都可以获取到Text节点(除了父关系)</li>
+<li><code>Node.childNodes</code>是最特殊的,它返回的是一个伪数组,里面是Node节点,并且伪数组内的值是动态变化的</li>
+</ul>
+</li>
+</ol>
+<h3 id="Node方法"><a href="#Node方法" class="headerlink" title="Node方法"></a>Node方法</h3><ul>
+<li><code>Node.appendChild()</code></li>
+<li><code>Node.hasChildNodes()</code></li>
+<li><code>Node.cloneNode()</code></li>
+<li><code>Node.insertBefore()</code></li>
+<li><code>Node.removeChild()</code></li>
+<li><code>Node.replaceChild()</code></li>
+<li><code>Node.contains()</code></li>
+<li><code>Node.isEqualNode()</code></li>
+<li><code>Node.isSameNode()</code></li>
+<li><p><code>Node.normalize()</code></p>
+<p>​</p>
+</li>
+</ul>
+<h2 id="document节点的一些属性和方法"><a href="#document节点的一些属性和方法" class="headerlink" title="document节点的一些属性和方法"></a>document节点的一些属性和方法</h2><h3 id="document属性"><a href="#document属性" class="headerlink" title="document属性"></a>document属性</h3><ol>
+<li><p>用于指向其他节点(快捷获取某些特殊节点)的属性</p>
+<ul>
+<li><code>document.documentElement</code>指向 DOM 的 html节点</li>
+<li><code>document.activeElement</code>指向获得焦点的那个节点</li>
+</ul>
+</li>
+<li><p>返回文档特定元素的伪数组集合的属性</p>
+<ul>
+<li><code>document.links</code></li>
+<li><code>document.forms</code></li>
+<li><code>document.images</code></li>
+<li><code>document.embeds</code></li>
+<li>等等</li>
+</ul>
+</li>
+<li><p>返回文档信息的属性</p>
+<ul>
+<li><code>document.location</code></li>
+<li><code>document.readyState</code>返回的是当前文档的状态,</li>
+<li>等等</li>
+</ul>
+<p>​</p>
+</li>
+</ol>
+<h3 id="document获取节点方法"><a href="#document获取节点方法" class="headerlink" title="document获取节点方法"></a>document获取节点方法</h3><ol>
+<li><p>方法:<code>document.querySelector(AAAA)</code>和<code>document.querySelectorAll(AAAA)</code></p>
+</li>
+<li><p>注意点:</p>
+<ul>
+<li>如果获取标签,那么直接AAAA === “div” 即可</li>
+<li>第一个返回的是第一个符合CSS选择器AAAA条件的节点</li>
+<li>第二个返回的是伪数组,里面包含了所有符合选择器的节点</li>
+<li>第二个返回的结果不是动态的,不会实时反映元素节点的变化</li>
+<li>这两个方法除了是 document ,还可以是某个 Node 节点</li>
+<li>其他查找方法不学,没有必要</li>
+</ul>
+<p>​</p>
+<p>​</p>
+</li>
+</ol>
+<h3 id="document生成节点的方法"><a href="#document生成节点的方法" class="headerlink" title="document生成节点的方法"></a>document生成节点的方法</h3><ol>
+<li><code>document.createElement(&quot;div&quot;)</code>生成Element节点</li>
+<li><code>document.createTextNode(&quot;你好,我叫饶家俊&quot;)</code>生成Text节点</li>
+</ol>
+<h3 id="document事件相关的方法"><a href="#document事件相关的方法" class="headerlink" title="document事件相关的方法"></a>document事件相关的方法</h3><p>待续</p>
+<h3 id="document写入方法"><a href="#document写入方法" class="headerlink" title="document写入方法"></a>document写入方法</h3><p>待续</p>
+<h2 id="Element节点的一些属性和方法"><a href="#Element节点的一些属性和方法" class="headerlink" title="Element节点的一些属性和方法"></a>Element节点的一些属性和方法</h2><h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><ol>
+<li><p>Element节点的属性处理</p>
+<p>搜索<code>处理标签属性</code></p>
+</li>
+<li><p>盒模型相关属性</p>
+<ol>
+<li><p>获得整个页面高度:<code>document.documentElement.scrollHeight</code></p>
+</li>
+<li><p>获得整个浏览器视口的高度<code>document.documentElement.clientHeight // 不包括滚动条</code></p>
+</li>
+<li><p>某个Element距离<strong>浏览器视口</strong>左上角的坐标</p>
+<ul>
+<li><code>Element.getBoundingClientRect().left</code></li>
+<li><code>Element.getBoundingClientRect().top</code></li>
+</ul>
+</li>
+<li><p>某个Element距离<strong>整个网页</strong>左上角的坐标(,注意和上一个区别)</p>
+<ul>
+<li><code>Element.getBoundingClientRect().left + document.documentElement.scrollLeft</code></li>
+<li><code>Element.getBoundingClientRect().top + document.documentElement.scrollTop</code></li>
+</ul>
+</li>
+<li><p>下面的可以不看了,等到遇到问题的时候再看</p>
+</li>
+<li><p>容器 === 浏览器的可视区域</p>
+</li>
+<li><p><code>Node.clientHeight</code>,<code>Node.clientWidth</code></p>
+<ul>
+<li>某个 Element节点: 经过浏览器视口变化,返回节点所占据整个页面的高度和宽度(只有padding,margin和border不是)</li>
+<li><code>html</code>节点: 返回浏览器视口宽度和高度</li>
+</ul>
+</li>
+<li><p><code>Node.clientTop</code>,<code>Node.clientLeft</code></p>
+<ul>
+<li>返回节点的左边框(border)和上边框(border)的<strong>边框宽度</strong></li>
+</ul>
+</li>
+<li><p><code>Noe.scrollHeight</code>, <code>Node.scrollWidth</code></p>
+<ul>
+<li>某个Element节点: 经过浏览器视口变化,返回节点所占据整个页面的高度和宽度(只有padding,margin和border不是)</li>
+<li><code>html</code>节点: 经过浏览器视口变化,返回整个页面的高度和宽度</li>
+</ul>
+</li>
+<li><p><code>Node.scrollLeft</code>, <code>Node.scrollTop</code></p>
+</li>
+</ol>
+<ul>
+<li>返回向下的滚动条和向右的滚动条滚动的像素</li>
+</ul>
+<ol start="11">
+<li><code>Node.offsetHeight</code>, <code>Node.offsetWidth</code></li>
+</ol>
+<ul>
+<li>某个 Element节点: 经过浏览器视口变化,返回节点所占据整个页面左上角距离右下角的宽度和高度,并且左上角是包括padding和border</li>
+<li><code>html</code>节点: 经过浏览器视口变化,返回整个页面的高度和宽度</li>
+</ul>
+<ol start="12">
+<li><code>Node.offsetLeft</code>,<code>Node.offsetTop</code></li>
+</ol>
+<ul>
+<li><p>与父节点之间的宽度和高度???</p>
+<p> ​</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="处理标签属性"><a href="#处理标签属性" class="headerlink" title="处理标签属性"></a>处理标签属性</h2><ol>
+<li><p>最正常,也最麻烦的写法</p>
+<ol>
+<li>增:<code>Node.setAttribute(&quot;属性名&quot;, &quot;属性值&quot;)</code></li>
+<li>删: <code>Node.removeAttribute(&quot;属性名&quot;)</code></li>
+<li>改: <code>Node.setAttribute(&quot;已经存在属性名&quot;, &quot;新属性值&quot;)</code></li>
+<li>查:<code>Node.getAttribute(&quot;属性名&quot;)</code></li>
+</ol>
+</li>
+<li><p>但是,对于标准属性来说,可以写的简单一点</p>
+<ol>
+<li>增:<code>Node.style = &quot;border: 10xp solid black&quot;</code></li>
+<li>删: 无法简写</li>
+<li>改: <code>Node.style = &quot;border: 10px solid red&quot;</code></li>
+<li>查:<code>Node.style</code></li>
+</ol>
+</li>
+<li><p>对于标准属性的 class 属性来说,因为它实在是太重要了,所以对于class属性也有一套方法:</p>
+<ol>
+<li><p>首先获得包含所有属性的伪数组<code>Node.classList</code></p>
+</li>
+<li><p>伪数组有以下方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">add()：追加一个class。</span><br><span class="line">remove()：移除一个class。</span><br><span class="line">contains()：检查当前元素是否包含某个class。</span><br><span class="line">toggle()：将某个class移入或移出当前元素。</span><br><span class="line">item()：返回指定索引位置的class。其实用divTag.classList[1]这样更好</span><br><span class="line">toString()：将class的列表转为字符串。</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<p>​</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><ol>
+<li>HTML 代码</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=parent&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>​    问: parent的值是多少? </p>
+<ol start="2">
+<li><p>HTMLCollection与NodeList的区别有   答案: AC</p>
+<p>A. HTMLCollection实例对象的成员只能是Element节点，NodeList实例对象的成员可以包含其他节点。</p>
+<p>B. HTMLCollection实例对象都是动态集合，节点的变化会实时反映在集合中。NodeList实例对象都是静态集合。</p>
+<p>C. HTMLCollection实例对象可以用id属性或name属性引用节点元素，NodeList只能使用数字索引引用。</p>
+</li>
+<li><p>代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var parent1 = document.getElementById(&apos;parent1&apos;);</span><br><span class="line">parent1.childNodes.length // 2</span><br><span class="line">parent1.appendChild(document.createElement(&apos;div&apos;));</span><br><span class="line">parent1.childNodes.length // 请问现在 length 是多少  答案是3</span><br><span class="line"></span><br><span class="line">var allDiv = document.querySelectorAll(&apos;div&apos;)</span><br><span class="line">allDiv.length // 假设是 2</span><br><span class="line">document.body.appendChild(  document.createElement(&apos;div&apos;)  )</span><br><span class="line">allDiv.length // 请问现在 length 的值是多少？？？    答案是2</span><br></pre></td></tr></table></figure>
+<p>答案的原因不是什么动态集合与静态集合,而是第一次的代码重新进行一次查询,而第二次的代码并没有重新进行查询,如果想让第二次的答案是3,那么把第二次的最后一句代码删去,并加上<code>allDiv = document.querySelectorAll(&#39;div&#39;);allDiv.length</code>就行了</p>
+<p>​</p>
+<p>​               </p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://firyuen.github.io/2018/11/10/DOM学习总结/" data-id="cjob5up70000je4vz25wmum5e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/10/JavaScript中call-apply-bind-用法的理解/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JavaScript中call(),apply(),bind()用法的理解</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="/" class="logo">firyuen&#39;Blog</a>
+      &copy; 2018 firyuen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.scrollLoading.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
