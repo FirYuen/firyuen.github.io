@@ -179,22 +179,22 @@
 <li><h5 id="call-、apply-、bind-都是用来重定义-this-这个对象的！"><a href="#call-、apply-、bind-都是用来重定义-this-这个对象的！" class="headerlink" title="call()、apply()、bind() 都是用来重定义 this 这个对象的！"></a>call()、apply()、bind() 都是用来重定义 this 这个对象的！</h5></li>
 </ol>
 <h5 id="如"><a href="#如" class="headerlink" title="如:"></a>如:</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"张三"</span>,age= <span class="number">20</span>;</span><br><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">    name:<span class="string">"李四"</span>,</span><br><span class="line">    objAge:<span class="keyword">this</span>.age,</span><br><span class="line">    myfun:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name+<span class="string">"年龄"</span>+<span class="keyword">this</span>.age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj2=&#123;</span><br><span class="line">    name:<span class="string">"王二"</span>,</span><br><span class="line">    age:<span class="number">40</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.myFun.call(obj2)；　　　　<span class="comment">//王二年龄40</span></span><br><span class="line">obj.myFun.apply(obj2);　　　 <span class="comment">//王二年龄40</span></span><br><span class="line">obj.myFun.bind(obj2)();　　　<span class="comment">//王二年龄40</span></span><br></pre></td></tr></table></figure>
-<pre><code>以上出了bind 方法后面多了个()外 ，结果返回都一致！
-</code></pre><p>　　由此得出结论，bind() 返回的是一个新的函数，你必须调用它才会被执行</p>
+<p>以上出了bind 方法后面多了个()外 ，结果返回都一致！由此得出结论，bind() 返回的是一个新的函数，你必须调用它才会被执行</p>
 <ol start="2">
 <li><h5 id="对比call-apply-bind-传参的情况下"><a href="#对比call-apply-bind-传参的情况下" class="headerlink" title="对比call(),apply(),bind()传参的情况下"></a>对比call(),apply(),bind()传参的情况下</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"张三"</span>,age= <span class="number">20</span>;</span><br><span class="line"><span class="keyword">var</span> obj=&#123;</span><br><span class="line">    name:<span class="string">"李四"</span>,</span><br><span class="line">    objAge:<span class="keyword">this</span>.age,</span><br><span class="line">    myfun:<span class="function"><span class="keyword">function</span>(<span class="params">fm,t</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name+<span class="string">"年龄"</span>+<span class="keyword">this</span>.age,<span class="string">"来自"</span>+fm+<span class="string">"去往"</span>+t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj2=&#123;</span><br><span class="line">    name:<span class="string">"王二"</span>,</span><br><span class="line">    age:<span class="number">40</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">　　obj.myFun.call(obj2,<span class="string">'成都'</span>,<span class="string">'上海'</span>)；　　　　 <span class="comment">//王二 年龄 40  来自 成都去往上海</span></span><br><span class="line">　　obj.myFun.apply(obj2,[<span class="string">'成都'</span>,<span class="string">'上海'</span>]);        <span class="comment">//王二 年龄 40  来自 成都去往上海  </span></span><br><span class="line">　　obj.myFun.bind(obj2,<span class="string">'成都'</span>,<span class="string">'上海'</span>)();         <span class="comment">//王二 年龄 40  来自 成都去往上海</span></span><br><span class="line"> 　  obj.myFun.bind(obj2,[<span class="string">'成都'</span>,<span class="string">'上海'</span>])();　　 <span class="comment">//王二 年龄 40  来自 成都,上海去往undefined</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h5 id="从上面四个结果不难看出"><a href="#从上面四个结果不难看出" class="headerlink" title="从上面四个结果不难看出"></a>从上面四个结果不难看出</h5><pre><code>- call 、bind 、 apply 这三个函数的第一个参数都是 this 的指向对象，第二个参数差别就来了：
-- call的参数是直接放进去的，第二第三第n个参数全都用逗号分隔，直接放到后面  obj.myFun.call(db,&apos;成都&apos;, ... ,&apos;string&apos; )；
-- apply的所有参数都必须放在一个数组里面传进去  obj.myFun.apply(obj2,[&apos;成都&apos;, ..., &apos;string&apos; ]);
-- bind除了返回是函数以外，它的参数和call 一样。
-</code></pre><p>　　　　<br>　　　　当然，三者的参数不限定是string类型，允许是各种类型，包括函数 , object 等等！</p>
+<h5 id="从上面四个结果不难看出"><a href="#从上面四个结果不难看出" class="headerlink" title="从上面四个结果不难看出"></a>从上面四个结果不难看出</h5><ul>
+<li>call 、bind 、 apply 这三个函数的第一个参数都是 this 的指向对象，第二个参数差别就来了：</li>
+<li>call的参数是直接放进去的，第二第三第n个参数全都用逗号分隔，直接放到后面  obj.myFun.call(db,’成都’, … ,’string’ )；</li>
+<li>apply的所有参数都必须放在一个数组里面传进去  obj.myFun.apply(obj2,[‘成都’, …, ‘string’ ]);</li>
+<li>bind除了返回是函数以外，它的参数和call 一样。<br>　　　　<br>　　当然，三者的参数不限定是string类型，允许是各种类型，包括函数 , object 等等！</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/11/10/JavaScript中call-apply-bind-用法的理解/" data-id="cjob4kplf0003dovz5l9tivjn" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/11/10/JavaScript中call-apply-bind-用法的理解/" data-id="cjob5038u0002bovzsgf4j3jv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -234,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/11/10/nodejs部分文件操作命令/" data-id="cjob4kpm0000gdovzilr0l8h0" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/11/10/nodejs部分文件操作命令/" data-id="cjob5039b000ebovzpa4oz1gz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -276,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/11/10/Linux基础/" data-id="cjob4kplh0005dovzvu2y7x8c" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/11/10/Linux基础/" data-id="cjob5038y0005bovz6qgebk55" class="article-share-link">Share</a>
       
       
     </footer>
@@ -321,7 +321,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/11/10/hello-world/" data-id="cjob4kpls000bdovz3kmgyvio" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/11/10/hello-world/" data-id="cjob50397000bbovzfxfjl5z4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -361,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/11/10/Git基础/" data-id="cjob4kpld0002dovzb5kyr04i" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/11/10/Git基础/" data-id="cjob5038s0001bovz7q77j0oi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -405,7 +405,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/07/22/jQuery/" data-id="cjob4kplt000cdovzbqw2qv47" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/07/22/jQuery/" data-id="cjob5039a000dbovza2cmgjzs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
@@ -518,7 +518,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/06/18/js里的对象/" data-id="cjob4kpmg000kdovzpa6mwdbx" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/06/18/js里的对象/" data-id="cjob5039s000kbovzp2r9rveo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -632,7 +632,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/06/18/JS里的类型/" data-id="cjob4kpme000jdovzfsje0ykq" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/06/18/JS里的类型/" data-id="cjob5039r000jbovz3bb71ydh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -697,7 +697,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/06/13/JavaScript的数据类型/" data-id="cjob4kplg0004dovzusol9vu1" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/06/13/JavaScript的数据类型/" data-id="cjob5038v0003bovzwnjknm2u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -835,7 +835,7 @@ false       //false
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/05/28/css布局总结/" data-id="cjob4kpln0009dovzn42phmet" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/05/28/css布局总结/" data-id="cjob503910008bovz8vuzhvnz" class="article-share-link">Share</a>
       
       
     </footer>
