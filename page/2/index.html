@@ -76,7 +76,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">10</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">14</span></li></ul>
     </div>
   </div>
 
@@ -88,23 +88,23 @@
       <ul>
         
           <li>
-            <a href="/2018/11/10/DOM学习总结/">DOM学习总结</a>
+            <a href="/2019/03/01/wifiPineapple救砖记/">wifiPineapple救砖记</a>
           </li>
         
           <li>
-            <a href="/2018/11/10/JavaScript中call-apply-bind-用法的理解/">JavaScript中call(),apply(),bind()用法的理解</a>
+            <a href="/2019/02/15/解决新版本-Chrome-提示-DOMException-The-play-request-was-interrupted/">解决新版本 Chrome 提示 DOMException: The play() request was interrupted</a>
           </li>
         
           <li>
-            <a href="/2018/11/10/nodejs部分文件操作命令/">nodejs部分文件操作相关命令</a>
+            <a href="/2019/01/20/Stylus两分钟入坑/">Stylus两分钟入坑</a>
           </li>
         
           <li>
-            <a href="/2018/11/10/Linux基础/">Linux基础</a>
+            <a href="/2019/01/18/Gulp学习笔记/">Gulp学习笔记</a>
           </li>
         
           <li>
-            <a href="/2018/11/10/hello-world/">Hello World</a>
+            <a href="/2018/11/16/背景图片虚化css/">背景图片虚化css</a>
           </li>
         
       </ul>
@@ -148,6 +148,71 @@
 </aside>
         
         <section id="main">
+  
+    <article id="post-JavaScript的数据类型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/13/JavaScript的数据类型/" class="article-date">
+  <time datetime="2018-06-13T15:27:28.000Z" itemprop="datePublished">2018-06-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/13/JavaScript的数据类型/">JavaScript的数据类型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#Number<br>在JavaScript中，不区分整型和浮点型。例如</p>
+<pre><code>1           //整数
+1.1         //浮点数
+0.232e4     //科学计数法 等同于0.232×10000
+-23         //负数
+NaN         //not a number ,表示结果无法集散
+Infinity    //无限大  超出Number的取值范围
+</code></pre><p>两个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> / <span class="number">0</span> = <span class="literal">Infinity</span></span><br><span class="line"><span class="number">0</span> / <span class="number">0</span> = <span class="literal">NaN</span></span><br></pre></td></tr></table></figure></p>
+<p>#布尔类型<br>和所有语言一样，布尔类型只有两种取值，true和false</p>
+<pre><code>true        //true
+false       //false
+2 &gt; 1       //true
+2 &lt; 1       //false
+</code></pre><p>跟布尔类型密切相关的是与或非三种运算</p>
+<p>##与运算<br>运算符 &amp;&amp;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">true &amp;&amp; true        //true</span><br><span class="line">true &amp;&amp; false       //false</span><br><span class="line">false &amp;&amp; false      //false</span><br></pre></td></tr></table></figure></p>
+<p>##或运算<br>运算符 ||<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">true || true        //true</span><br><span class="line">true || false       //true</span><br><span class="line">false || false      //false</span><br></pre></td></tr></table></figure></p>
+<p>##非运算<br>运算符 ！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">!true       //false</span><br><span class="line">!false      //true</span><br></pre></td></tr></table></figure></p>
+<p>#字符串<br>字符串是使用单引号’或者双引号”括起来的任意文本<br>例如’android’ “ios”<br>但是’’或者””本身并不是字符串的一部分</p>
+<p>#数组<br>数组是一串按照顺序排列的元素的集合，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3, 4, 6, 7]</span><br><span class="line">[23, 54, 54, &apos;12&apos;, &apos;adc&apos;]</span><br><span class="line">[&apos;12&apos;, &apos;23&apos;, &apos;av&apos;, &#123;a:b,c:d&#125;, [1, 2]]</span><br></pre></td></tr></table></figure></p>
+<p>创建数组的两种方法 </p>
+<ul>
+<li>var arr = new Array(‘a’, ‘c’, ‘d’) </li>
+<li>var arr = [‘a’, ‘c’, ‘d’]<br>推荐使用第二种方法，该方法申明的数组可读性更好</li>
+</ul>
+<p>#对象<br>由key-value组成的无序集合<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> company = &#123;</span><br><span class="line">    google: <span class="string">'android'</span>,</span><br><span class="line">    apple: <span class="string">'ios'</span>,</span><br><span class="line">    microsoft: [<span class="string">'office'</span>, <span class="string">'windows'</span>, <span class="string">'vs'</span>],</span><br><span class="line">    facebook: <span class="string">'facebook'</span>,</span><br><span class="line">    beijing: <span class="literal">true</span>,</span><br><span class="line">    money: <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>##取值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">company.google       //&apos;android&apos;</span><br><span class="line">company.microsoft    //[&apos;office&apos;, &apos;windows&apos;, &apos;vs&apos;]</span><br><span class="line">company.monet        //null</span><br></pre></td></tr></table></figure></p>
+<p>##添加<br>var company = {…}<br>company[‘china’] = ‘1949’<br>console.log(company)</p>
+<p>##结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    apple: &quot;ios&quot;</span><br><span class="line">    beijing: true</span><br><span class="line">    china: &quot;1949&quot;</span><br><span class="line">    facebook: &quot;facebook&quot; </span><br><span class="line">    google: &quot;android&quot;</span><br><span class="line">    microsoft: [&quot;office&quot;, &quot;windows&quot;, &quot;vs&quot;]</span><br><span class="line">    money: null</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>#null和undefined<br>null是什么都么有，空的，和0以及空字符串null都不同<br>undefined是未定义<br>两者的区别未见啥大的意义，一般情况下，都应该使用null，undefined可用于判断参数是否传递，未传递则为undefined </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://firyuen.github.io/2018/06/13/JavaScript的数据类型/" data-id="cjspvm3zp00044dc983pzspn4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-css布局总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -277,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/05/28/css布局总结/" data-id="cjob5up6b0008e4vzokwc7cvl" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/05/28/css布局总结/" data-id="cjspvm405000f4dc9jwlnbgaj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -314,7 +379,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/05/22/随身git服务器/" data-id="cjob5up6q000he4vzajm937mw" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/05/22/随身git服务器/" data-id="cjspvm40j000l4dc9duaxjz9f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -433,7 +498,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/05/21/css学习笔记/" data-id="cjob5up690006e4vztbdmh077" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/05/21/css学习笔记/" data-id="cjspvm3zv00094dc9tozzsgwz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -522,7 +587,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/05/19/css2/" data-id="cjob5up6a0007e4vz6qam7nul" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/05/19/css2/" data-id="cjspvm3zt00084dc9z36hez9j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -642,7 +707,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/05/19/css1/" data-id="cjob5up6e000ae4vz7bfp1hzp" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/05/19/css1/" data-id="cjspvm3zs00074dc9g8v03tvf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -710,7 +775,7 @@ http-server -c-1 则不会缓存
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/05/18/html标签/" data-id="cjob5up6h000ce4vz07ofqpsf" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/05/18/html标签/" data-id="cjspvm401000c4dc9cugrybr3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1240,7 +1305,7 @@ http-server -c-1 则不会缓存
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/05/17/HTML/" data-id="cjob5up5w0000e4vzto765zpf" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/05/17/HTML/" data-id="cjspvm3zj00014dc9513wg61e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1318,7 +1383,7 @@ http-server -c-1 则不会缓存
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/05/15/http/" data-id="cjob5up6g000be4vzchmer30j" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/05/15/http/" data-id="cjspvm402000d4dc94dalxzvc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1392,44 +1457,7 @@ http-server -c-1 则不会缓存
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/05/14/Hexo使用方法备注/" data-id="cjob5up670004e4vzutkj90d4" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-开博大吉" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/13/开博大吉/" class="article-date">
-  <time datetime="2018-05-13T09:36:17.000Z" itemprop="datePublished">2018-05-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/13/开博大吉/">开博大吉</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Hello World!</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://firyuen.github.io/2018/05/13/开博大吉/" data-id="cjob5up6p000ge4vzy2607o1h" class="article-share-link">Share</a>
+      <a data-url="https://firyuen.github.io/2018/05/14/Hexo使用方法备注/" data-id="cjspvm3zq00054dc9kmd6cz51" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1442,7 +1470,7 @@ http-server -c-1 则不会缓存
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 </section>
       </div>
@@ -1451,7 +1479,7 @@ http-server -c-1 则不会缓存
   <div class="outer">
     <div id="footer-info" class="inner">
       <a href="/" class="logo">firyuen&#39;Blog</a>
-      &copy; 2018 firyuen<br>
+      &copy; 2019 firyuen<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

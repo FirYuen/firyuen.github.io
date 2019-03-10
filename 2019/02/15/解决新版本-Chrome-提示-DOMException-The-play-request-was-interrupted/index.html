@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>解决新版本 Chrome 提示 DOMException: The play() request was interrupted | firyuen&#39;Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="解决新版本 Chrome 提示 DOMException: The play() request was interrupted  大概在一些新版本的浏览器中，我们是用 audio 或者 video 进行媒体资源播放的时候，可能会在控制台看到这个输出:  Uncaught (in promise) DOMException: The play() request was interrupted">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决新版本 Chrome 提示 DOMException: The play() request was interrupted">
+<meta property="og:url" content="https://firyuen.github.io/2019/02/15/解决新版本-Chrome-提示-DOMException-The-play-request-was-interrupted/index.html">
+<meta property="og:site_name" content="firyuen&#39;Blog">
+<meta property="og:description" content="解决新版本 Chrome 提示 DOMException: The play() request was interrupted  大概在一些新版本的浏览器中，我们是用 audio 或者 video 进行媒体资源播放的时候，可能会在控制台看到这个输出:  Uncaught (in promise) DOMException: The play() request was interrupted">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-15T12:07:32.220Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="解决新版本 Chrome 提示 DOMException: The play() request was interrupted">
+<meta name="twitter:description" content="解决新版本 Chrome 提示 DOMException: The play() request was interrupted  大概在一些新版本的浏览器中，我们是用 audio 或者 video 进行媒体资源播放的时候，可能会在控制台看到这个输出:  Uncaught (in promise) DOMException: The play() request was interrupted">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'> -->
+  <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css"> -->
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css">
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="header-outer" class="outer">
+    <a href="/" class="logo">firyuen&#39;Blog</a>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about/index.html">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://firyuen.github.io"></form>
+        </div>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        
+        
+          <a id="nav-github-link" class="nav-icon" href="https://github.com/ppoffice/hexo-theme-alex" title="Fork me on GitHub"></a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+      <nav id="mobile-nav" class="off">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/index.html" class="mobile-nav-link">About</a>
+  
+  <div id="search-form-wrap-mobile">
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://firyuen.github.io"></form>
+  </div>
+</nav>
+      <div class="outer">
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">14</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/01/wifiPineapple救砖记/">wifiPineapple救砖记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/15/解决新版本-Chrome-提示-DOMException-The-play-request-was-interrupted/">解决新版本 Chrome 提示 DOMException: The play() request was interrupted</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/20/Stylus两分钟入坑/">Stylus两分钟入坑</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/18/Gulp学习笔记/">Gulp学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/16/背景图片虚化css/">背景图片虚化css</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">links</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://hexo.io">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+        <section id="main"><article id="post-解决新版本-Chrome-提示-DOMException-The-play-request-was-interrupted" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/15/解决新版本-Chrome-提示-DOMException-The-play-request-was-interrupted/" class="article-date">
+  <time datetime="2019-02-15T11:51:39.000Z" itemprop="datePublished">2019-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      解决新版本 Chrome 提示 DOMException: The play() request was interrupted
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>解决新版本 Chrome 提示 DOMException: The play() request was interrupted</p>
+</blockquote>
+<p>大概在一些新版本的浏览器中，我们是用 audio 或者 video 进行媒体资源播放的时候，可能会在控制台看到这个输出:</p>
+<blockquote>
+<p>Uncaught (in promise) DOMException: The play() request was interrupted by a call to pause().  </p>
+</blockquote>
+<p>OR</p>
+<blockquote>
+<p>Uncaught (in promise) DOMException: The play() request was interrupted by a new load request. </p>
+</blockquote>
+<p>触发方式：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">"video"</span> <span class="attr">preload</span>=<span class="string">"none"</span> <span class="attr">src</span>=<span class="string">"https://example.com/file.mp4"</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined">  </span></span><br><span class="line"><span class="javascript">  video.play(); <span class="comment">// &lt;-- This is asynchronous!</span></span></span><br><span class="line"><span class="undefined">  video.pause();</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>上面的代码会造成下面的异常错误:</p>
+<blockquote>
+<p>Uncaught (in promise) DOMException: The play() request was interrupted by a call to pause().  </p>
+</blockquote>
+<p>上面的 video 的 设置了 <code>preload = &#39;none&#39;</code>，视频并没有提前加载，因此在触发 <code>video.play()</code> 并不能立即播放。</p>
+<p>从 Chrome 50 的版本后 触发 <code>video.play()</code> 会返回一个 Promise 对象 ，如果播放成功，则 Promise 会触发，然后 playing 事件同时也会触发。如果播放失败，则会触发 Promise 的 reject,参数会带有错误的信息。</p>
+<p>现在触发的顺序：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. video.play() 异步的去加载 video 内容，</span><br><span class="line">2. video.pause() 中断视频的加载，因为视频并没有就绪</span><br><span class="line">3. video.play() 异步的 rejects</span><br></pre></td></tr></table></figure></p>
+<p>因为我们并没有处理 video.play 的 Promise ，然后一个错误的信息会暴露出来。</p>
+<p><strong>video.pause() 不光会打断一个视频的播放，而且会完全重置一个视频的播放的状态，包括 buffer 和 video.load</strong></p>
+<p>修复<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">"video"</span> <span class="attr">preload</span>=<span class="string">"none"</span> <span class="attr">src</span>=<span class="string">"https://example.com/file.mp4"</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined">  </span></span><br><span class="line"><span class="javascript">  <span class="comment">// Show loading animation.</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> playPromise = video.play();</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">if</span> (playPromise !== <span class="literal">undefined</span>) &#123;</span></span><br><span class="line"><span class="javascript">    playPromise.then(<span class="function"><span class="params">_</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 这个时候可以安全的暂停</span></span></span><br><span class="line"><span class="undefined">      video.pause();</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="javascript">    .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">    &#125;);</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>如今现在 HTMLMediaElement.play() 支持返回 Promise 已经在 Chrome, Firefox, Opera, 以及 Safari Edge 实现了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://firyuen.github.io/2019/02/15/解决新版本-Chrome-提示-DOMException-The-play-request-was-interrupted/" data-id="cjspvm40o000n4dc92tz2t90z" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/01/wifiPineapple救砖记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          wifiPineapple救砖记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/20/Stylus两分钟入坑/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Stylus两分钟入坑</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <a href="/" class="logo">firyuen&#39;Blog</a>
+      &copy; 2019 firyuen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.scrollLoading.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
