@@ -79,4 +79,6 @@ theme: hexo-theme-alex
 deploy:
   type: git
   repo: git@github.com:firyuen/firyuen.github.io.git
+  branch: master
+
   ##repo: git@192.168.2.252:/var/www/firyuen.github.io
